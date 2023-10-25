@@ -10,7 +10,7 @@ TID - Trimble Identity, Identity Provider
 
 Here is useful information for you getting started with SDK:
 
-* [Install Trimble.ID.Desktop SDK](https://nuget.org)
+* [Install Trimble.ID.Desktop SDK](https://www.nuget.org/packages?q=Trimble.ID.Desktop)
 * [TID Desktop SDK Client Developer Guide](./DeveloperGuide.md)
 * [TID Desktop SDK Client Reference documentation](./ReferenceDoc.md)
 * [TID Desktop SDK Client  Samples](../../samples/)

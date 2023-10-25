@@ -12,7 +12,7 @@ TID - Trimble Identity, Identity Provider
 
 Here is useful information for you getting started with SDK:
 
-* [Install .NET MAUI TID SDK](https://nuget.org)
+* [Install .NET MAUI TID SDK](https://www.nuget.org/packages?q=Trimble.ID.Maui)
 * [TID .NET MAUI SDK Developer Guide](./DeveloperGuide.md)
 * [TID .NET MAUI SDK Reference documentation](./ReferenceDoc.md)
 * [TID .NET MAUI SDK Samples](../../samples/)
