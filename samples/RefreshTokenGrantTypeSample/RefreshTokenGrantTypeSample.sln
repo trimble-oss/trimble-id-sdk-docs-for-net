@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefreshTokenGrantTypeSample", "RefreshTokenGrantTypeSample.csproj", "{FF28CD38-6D66-4BFE-8358-1D5D68E88116}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF28CD38-6D66-4BFE-8358-1D5D68E88116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF28CD38-6D66-4BFE-8358-1D5D68E88116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF28CD38-6D66-4BFE-8358-1D5D68E88116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF28CD38-6D66-4BFE-8358-1D5D68E88116}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B8C1E91-2803-470D-BA87-77FD086707A5}
+	EndGlobalSection
+EndGlobal

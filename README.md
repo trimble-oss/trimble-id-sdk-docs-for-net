@@ -39,9 +39,9 @@ To register your service application in Trimble Cloud Console:
 
 3. In the Application Type section, select one of the following options:
 
-    - Service Application A service application are intended to be used in programmatic workflows or server-server communication.
+    - Service Application - A service application are intended to be used in programmatic workflows or server-server communication.
 
-    - Application Refers to any Trimble application that is intended to be accessed by an end user.
+    - Application - Refers to any Trimble application that is intended to be accessed by an end user.
 
 4. Select Continue to enter the applications details.
 
@@ -52,9 +52,9 @@ To register your service application in Trimble Cloud Console:
 | Description | Provide a description for the application.  |
 
 5. Continue with completing the Configurations section. The fields that display depend on your selection in step 3.
-    - For Service Application
+    - For Service Application: 
       Service Application Grant types - Only Client Credentials Grant displays.
-    - For Application
+    - For Application:
 
 | Field       | Description |
 | ----------- | ----------- |

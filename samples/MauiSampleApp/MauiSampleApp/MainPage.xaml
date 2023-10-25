@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:mauisampleapp="clr-namespace:MauiSampleApp" 
+             x:DataType="mauisampleapp:MainPage"
+             x:Class="MauiSampleApp.MainPage">
+    <ScrollView>
+        <VerticalStackLayout
+           Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Label Text="{Binding IntroText}"
+                    HorizontalOptions="Center"/>
+
+            <Button Text="{Binding LoginButtonText}"
+                Clicked="LoginButton_Clicked"
+                     HorizontalOptions="Center"/>
+
+            <Button Text="Access Token"
+                Clicked="GetAccessToken_Clicked"
+                     HorizontalOptions="Center"/>
+
+            <Label Text="{Binding GivenName}"
+                    HorizontalOptions="Center"/>
+            <Label Text="{Binding FamilyName}"
+                    HorizontalOptions="Center"/>
+
+            <Label Text="{Binding GetAccessTokenText}"
+                     HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
