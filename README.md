@@ -45,22 +45,22 @@ To register your service application in Trimble Cloud Console:
 
 4. Select Continue to enter the applications details.
 
-| Field       | Description |
-| ----------- | ----------- |
-| Name        | Name of your application                    |
-| Display Name| Provide a display name of the application.  |
-| Description | Provide a description for the application.  |
+    | Field       | Description |
+    | ----------- | ----------- |
+    | Name        | Name of your application                    |
+    | Display Name| Provide a display name of the application.  |
+    | Description | Provide a description for the application.  |
 
 5. Continue with completing the Configurations section. The fields that display depend on your selection in step 3.
     - For Service Application: 
       Service Application Grant types - Only Client Credentials Grant displays.
     - For Application:
 
-| Field       | Description |
-| ----------- | ----------- |
-| Application Grant Types        | Select the grant types that will be used for authenticating users or applications.                    |
-| Allowed Callback URLS| Refers to the redirect URI of the application after logging into Identity. More than one UL can be added to this field. The total URI length should not exceed 400kb. This field appears only when you select the Authorization Grant type.  |
-| Allowed Logout URLS | The URIs that Identity can redirect to after log out. More than one UL can be added to this field. The total URI length should not exceed 400kb. This field appears only when you select the Authorization Grant type.  |
+    | Field       | Description |
+    | ----------- | ----------- |
+    | Application Grant Types        | Select the grant types that will be used for authenticating users or applications.                    |
+    | Allowed Callback URLS| Refers to the redirect URI of the application after logging into Identity. More than one UL can be added to this field. The total URI length should not exceed 400kb. This field appears only when you select the Authorization Grant type.  |
+    | Allowed Logout URLS | The URIs that Identity can redirect to after log out. More than one UL can be added to this field. The total URI length should not exceed 400kb. This field appears only when you select the Authorization Grant type.  |
 
 6. Select COMPLETE to save changes.
 
