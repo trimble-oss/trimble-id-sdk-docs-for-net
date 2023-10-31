@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="TrimbleCloud.Authentication" Version="3.4.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+    <PackageReference Include="Trimble.ID" Version="1.0.0-rc.3" />
   </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.json">

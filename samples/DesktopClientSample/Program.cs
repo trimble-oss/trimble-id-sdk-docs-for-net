@@ -1,5 +1,5 @@
-﻿using TrimbleCloud.Authentication;
-using TrimbleCloud.Authentication.Desktop;
+﻿using Trimble.ID;
+using Trimble.ID.Desktop;
 
 byte[] Salt = { 0xb7, 0xa2, 0x46, 0x53, 0x84, 0xf0, 0x49, 0xc6, 0x4f, 0x9b };
 

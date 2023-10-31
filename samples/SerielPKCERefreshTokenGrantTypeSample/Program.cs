@@ -1,8 +1,6 @@
-﻿using TrimbleCloud.Authentication;
-
-/// --- Serial Refresh with PKCE ---
+﻿/// --- Serial Refresh with PKCE ---
 /// Public clients that use Authorization code grant with Proof Key for Code Exchange (PKCE) can use Serial PKCE to refresh their access token. 
-
+using Trimble.ID;
 
 IEndpointProvider endpointProvider = OpenIdEndpointProvider.Production;
 var tokenProvider = new RefreshableTokenProvider(endpointProvider, "CLIENT_ID")

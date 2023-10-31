@@ -1,30 +1,30 @@
 <a name='assembly'></a>
-# Trimble.Id
+# Trimble.ID.Maui
 
 ## Contents
 
-- [MobileAuthenticator](#T-Trimble-Id-MobileAuthenticator 'Trimble.Id.MobileAuthenticator')
-  - [#ctor(endpointProvider,clientId,scopes,redirectUri,allowPersistenceStorage)](#M-Trimble-Id-MobileAuthenticator-#ctor-TrimbleCloud-Authentication-IEndpointProvider,System-String,System-String[],System-String,System-Boolean- 'Trimble.Id.MobileAuthenticator.#ctor(TrimbleCloud.Authentication.IEndpointProvider,System.String,System.String[],System.String,System.Boolean)')
-  - [IsLoggedIn](#P-Trimble-Id-MobileAuthenticator-IsLoggedIn 'Trimble.Id.MobileAuthenticator.IsLoggedIn')
-  - [TokenProvider](#P-Trimble-Id-MobileAuthenticator-TokenProvider 'Trimble.Id.MobileAuthenticator.TokenProvider')
-  - [GetUserInfo()](#M-Trimble-Id-MobileAuthenticator-GetUserInfo 'Trimble.Id.MobileAuthenticator.GetUserInfo')
-  - [Login(silent,timeoutInMs)](#M-Trimble-Id-MobileAuthenticator-Login-System-Boolean,System-Int32,System-Threading-CancellationToken- 'Trimble.Id.MobileAuthenticator.Login(System.Boolean,System.Int32,System.Threading.CancellationToken)')
-  - [Logout(singleSignOut)](#M-Trimble-Id-MobileAuthenticator-Logout-System-Boolean,System-Threading-CancellationToken- 'Trimble.Id.MobileAuthenticator.Logout(System.Boolean,System.Threading.CancellationToken)')
-  - [OnReceive(query)](#M-Trimble-Id-MobileAuthenticator-OnReceive-System-String- 'Trimble.Id.MobileAuthenticator.OnReceive(System.String)')
-  - [OnReceive(state,code)](#M-Trimble-Id-MobileAuthenticator-OnReceive-System-String,System-String- 'Trimble.Id.MobileAuthenticator.OnReceive(System.String,System.String)')
-  - [WithViewController(viewController)](#M-Trimble-Id-MobileAuthenticator-WithViewController-UIKit-UIViewController- 'Trimble.Id.MobileAuthenticator.WithViewController(UIKit.UIViewController)')
-  - [WithActivity(activity)](#M-Trimble-Id-MobileAuthenticator-WithActivity-Android-App-Activity- 'Trimble.Id.MobileAuthenticator.WithActivity(Android.App.Activity)')
-- [TokenProviderWrapper](#T-Trimble-Id-TokenProviderWrapper 'Trimble.Id.TokenProviderWrapper')
-  - [RetrieveToken()](#M-Trimble-Id-TokenProviderWrapper-RetrieveToken 'Trimble.Id.TokenProviderWrapper.RetrieveToken')
-- [IMobileAuthenticator](#T-Trimble-Id-IMobileAuthenticator 'Trimble.Id.IMobileAuthenticator')
-  - [OnReceive(query)](#M-Trimble-Id-IMobileAuthenticator-OnReceive-System-String- 'Trimble.Id.IMobileAuthenticator.OnReceive(System.String)')
-  - [OnReceive(state,code)](#M-Trimble-Id-IMobileAuthenticator-OnReceive-System-String,System-String- 'Trimble.Id.IMobileAuthenticator.OnReceive(System.String,System.String)')
+- [MobileAuthenticator](#T-Trimble-Id-MobileAuthenticator 'Trimble.ID.Maui.MobileAuthenticator')
+  - [#ctor(endpointProvider,clientId,scopes,redirectUri,allowPersistenceStorage)](#M-Trimble-Id-MobileAuthenticator-#ctor-TrimbleCloud-Authentication-IEndpointProvider,System-String,System-String[],System-String,System-Boolean- 'Trimble.ID.Maui.MobileAuthenticator.#ctor(TrimbleCloud.Authentication.IEndpointProvider,System.String,System.String[],System.String,System.Boolean)')
+  - [IsLoggedIn](#P-Trimble-Id-MobileAuthenticator-IsLoggedIn 'Trimble.ID.Maui.MobileAuthenticator.IsLoggedIn')
+  - [TokenProvider](#P-Trimble-Id-MobileAuthenticator-TokenProvider 'Trimble.ID.Maui.MobileAuthenticator.TokenProvider')
+  - [GetUserInfo()](#M-Trimble-Id-MobileAuthenticator-GetUserInfo 'Trimble.ID.Maui.MobileAuthenticator.GetUserInfo')
+  - [Login(silent,timeoutInMs)](#M-Trimble-Id-MobileAuthenticator-Login-System-Boolean,System-Int32,System-Threading-CancellationToken- 'Trimble.ID.Maui.MobileAuthenticator.Login(System.Boolean,System.Int32,System.Threading.CancellationToken)')
+  - [Logout(singleSignOut)](#M-Trimble-Id-MobileAuthenticator-Logout-System-Boolean,System-Threading-CancellationToken- 'Trimble.ID.Maui.MobileAuthenticator.Logout(System.Boolean,System.Threading.CancellationToken)')
+  - [OnReceive(query)](#M-Trimble-Id-MobileAuthenticator-OnReceive-System-String- 'Trimble.ID.Maui.MobileAuthenticator.OnReceive(System.String)')
+  - [OnReceive(state,code)](#M-Trimble-Id-MobileAuthenticator-OnReceive-System-String,System-String- 'Trimble.ID.Maui.MobileAuthenticator.OnReceive(System.String,System.String)')
+  - [WithViewController(viewController)](#M-Trimble-Id-MobileAuthenticator-WithViewController-UIKit-UIViewController- 'Trimble.ID.Maui.MobileAuthenticator.WithViewController(UIKit.UIViewController)')
+  - [WithActivity(activity)](#M-Trimble-Id-MobileAuthenticator-WithActivity-Android-App-Activity- 'Trimble.ID.Maui.MobileAuthenticator.WithActivity(Android.App.Activity)')
+- [TokenProviderWrapper](#T-Trimble-Id-TokenProviderWrapper 'Trimble.ID.Maui.TokenProviderWrapper')
+  - [RetrieveToken()](#M-Trimble-Id-TokenProviderWrapper-RetrieveToken 'Trimble.ID.Maui.TokenProviderWrapper.RetrieveToken')
+- [IMobileAuthenticator](#T-Trimble-Id-IMobileAuthenticator 'Trimble.ID.Maui.IMobileAuthenticator')
+  - [OnReceive(query)](#M-Trimble-Id-IMobileAuthenticator-OnReceive-System-String- 'Trimble.ID.Maui.IMobileAuthenticator.OnReceive(System.String)')
+  - [OnReceive(state,code)](#M-Trimble-Id-IMobileAuthenticator-OnReceive-System-String,System-String- 'Trimble.ID.Maui.IMobileAuthenticator.OnReceive(System.String,System.String)')
 <a name='T-Trimble-Id-IMobileAuthenticator'></a>
 ## IMobileAuthenticator `type`
 
 ##### Namespace
 
-Trimble.Id
+Trimble.ID.Maui
 
 ##### Summary
 
@@ -64,7 +64,7 @@ This method is used in Android and needs to be invoked to complete Login/Logout 
 
 ##### Namespace
 
-Trimble.Id
+Trimble.ID.Maui
 
 ##### Summary
 
@@ -250,7 +250,7 @@ Fluent method to specify current viewcontroller in iOS.
 
 ##### Namespace
 
-Trimble.Id
+Trimble.ID.Maui
 
 <a name='M-Trimble-Id-TokenProviderWrapper-RetrieveToken'></a>
 ### RetrieveToken() `method`

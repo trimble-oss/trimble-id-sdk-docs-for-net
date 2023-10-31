@@ -1,6 +1,6 @@
-﻿using TrimbleCloud.Authentication;
+﻿// Retrieve a token for the client credential grant type, typically suited for server-side authentication
 
-// Retrieve a token for the client credential grant type, typically suited for server-side authentication
+using Trimble.ID;
 
 const string clientId = "app-client-id";
 const string clientSecret = "app-client-secret";

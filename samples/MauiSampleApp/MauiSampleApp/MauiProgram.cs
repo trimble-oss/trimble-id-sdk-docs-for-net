@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Maui;
+using Trimble.ID;
 using Trimble.ID.Maui;
-using TrimbleCloud.Authentication;
 
 namespace MauiSampleApp;
 

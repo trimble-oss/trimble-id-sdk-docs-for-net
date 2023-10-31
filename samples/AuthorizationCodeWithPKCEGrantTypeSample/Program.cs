@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Win32;
-using TrimbleCloud.Authentication;
+using Trimble.ID;
 
 namespace AuthorizationCodeWithPKCEGrantTypeSample
 {
