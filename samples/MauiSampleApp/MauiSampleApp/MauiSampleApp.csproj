@@ -55,6 +55,6 @@
 	<ItemGroup>
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	  <PackageReference Include="CommunityToolkit.Maui" Version="5.3.0" />
-	  <PackageReference Include="Trimble.ID.Maui" Version="1.0.0-rc.1" />
+	  <PackageReference Include="Trimble.ID.Maui" Version="1.0.0" />
 	</ItemGroup>
 </Project>

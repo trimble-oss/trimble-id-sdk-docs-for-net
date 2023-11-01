@@ -1,5 +1,5 @@
-# 1.0.0-rc.1
+# 1.0.0
 
-Release candidate version of Trimble.ID.Desktop SDK
+Initial stable version of Trimble.ID.Desktop SDK
 
-- Implements the PKCE OAuth grant, which is used to secure authorization codes in public clients with custom URI scheme redirects
+- Implements the PKCE OAuth grant, which is used to secure authorization codes in public clients with custom URI scheme redirects. It also supports secure token persistence.

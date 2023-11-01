@@ -1,4 +1,7 @@
 ﻿/// --- Serial Refresh with PKCE ---
+/// 
+/// AuthorizationCodeGrantTokenProvider for PKCE internally refreshes the token. We don't need to explicitly refresh the token.
+/// 
 /// Public clients that use Authorization code grant with Proof Key for Code Exchange (PKCE) can use Serial PKCE to refresh their access token. 
 using Trimble.ID;
 

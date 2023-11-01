@@ -21,11 +21,7 @@ Trimble.ID.Desktop is a .NET library that can be used to add authentication to y
 
 ## <a name="identity">Authentication with Trimble Identity</a> ##
 
-To utilize TID authentication, the calling app must be registered with Trimble. This process can be initiated by contacting the Trimble Support team at [cloudplatform_support@trimble.com](mailto:cloudplatform_support@trimble.com).
-
-Upon successful registration, the requesting developer will receive the following OAuth2 parameters: client credentials and redirectUri. These parameters must be used in the SDK client to initiate the browser-based authentication flow for your native apps.
-
-> NOTE: Developers can conveniently handle this registration process on their own once the Trimble developer console becomes available. In the meantime, developers should reach out to our support team to initiate the registration process and get onboarded.
+To utilize TID authentication, your identity application must be registered with Trimble Identity. You can conveniently handle the application registration process on [Trimble Developer Console](https://developer.console.trimble.com).
 
 ## <a name="configure-endpoint">Configure the endpoint</a> ##
 

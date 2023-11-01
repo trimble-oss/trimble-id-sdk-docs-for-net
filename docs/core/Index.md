@@ -1,6 +1,6 @@
 # Trimble.ID Client SDK
 
-Trimble.ID is core helper library containing primitives and basic interaction with supported grant types.
+Trimble.ID is core helper library containing primitives and  interaction with supported grant types. It is a base library for OAuth2.0 related protocol operations.
 
 ### Acronyms
 

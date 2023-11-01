@@ -7,6 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Trimble.ID.Desktop" Version="1.0.0-rc.1" />
+    <PackageReference Include="Trimble.ID.Desktop" Version="1.0.0" />
   </ItemGroup>
 </Project>

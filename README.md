@@ -31,7 +31,7 @@ dotnet add package Trimble.ID.Desktop --version 1.0.0
 
 Create a new application in the [Trimble Developer Console](https://beta.console.trimble.com/home) portal and configure the following settings:
 
-To register your service application in Trimble Cloud Console:
+To register your service application in Trimble Developer Console:
 
 1. On the left pane select Identity Management > Applications.
 
@@ -57,6 +57,7 @@ To register your service application in Trimble Cloud Console:
 
 Take note of the Client ID and URLs under the "Basic Information" section. You'll need these values to configure the SDK.
 
+For more information, see [Authentication documentation](https://developer.trimble.com/docs/authentication).
 
 ### Raise an issue
 
