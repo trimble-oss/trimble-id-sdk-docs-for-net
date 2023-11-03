@@ -57,6 +57,10 @@ To register your service application in Trimble Developer Console:
 
 Take note of the Client ID and URLs under the "Basic Information" section. You'll need these values to configure the SDK.
 
+**Scopes**
+
+Trimble Identity uses scopes to determine the aud claim in the returned access token. Scope is mandatory for the application to work. You can use the scope as the application name registered in the Trimble Developer Console. For example, if you have registered an application with the name "test", then it must be registered in the format {some_uuid}-"test". For eg., 12345678-1234-1234-1234-123456789012-test.
+
 For more information, see [Authentication documentation](https://developer.trimble.com/docs/authentication).
 
 ### Raise an issue
