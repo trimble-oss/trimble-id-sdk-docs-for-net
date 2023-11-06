@@ -10,11 +10,11 @@
 
 ## <a name="overview">Overview</a> ##
 
-Trimble.ID is core helper library containing primitives and basic interaction with supported grant types. It is base library for OIDC and OAuth 2.0 related protocol operations. It provides, 
+Trimble.ID is core helper library containing primitives and interaction with supported grant types. It is base library for OAuth 2.0 related protocol operations. It provides, 
 
 - Discovery of endpoints
-- Grant Types Token Providers
-- Token Validation
+- Grant Type Token Providers
+- Token Refresh and Token Validation
 - HTTP Client Handler to access a given API with the access token
 
 
@@ -84,36 +84,37 @@ var token = await tokenProvider.RetrieveToken();
 ```
 Alternatively, you can utilize the `endpointProvider` by specifying `OpenIdEndpointProvider.Staging` for the staging environment and `OpenIdEndpointProvider.Production` for the production environment, simplifying configuration accordingly.
 
-Trimble.ID.RefreshableTokenProvider
-======
-This token provider is used to refresh an access token using a refresh token.
-
-## Usage
-```C#
-using Trimble.ID;
-var tokenProvider = new RefreshableTokenProvider(endpointProvider, "clientId")
-                                    .WithConsumerSecret("clientSecret")
-                                    .WithRefreshToken("refreshToken")               
-                                    .WithScopes(new[] string { "scope" });;
-var token = await tokenProvider.RetrieveToken();
-var refreshToken = await tokenProvider.RetrieveRefreshToken();
-```
-
 Trimble.ID.AuthorizationCodeGrantTokenProvider
 ======
 This token provider is used to retrieve an access token using the authorization code grant type.
 
-## Usage
+## Usage - Authorization grant
 ```C#
 using Trimble.ID;
-var tokenProvider = new AuthorizationCodeTokenProvider(endpointProvider, "clientId", "clientSecret", "https://redirect.url").WithScopes(new[] string { "scope" });;
-// if query string contains 'code='
-    bool validated = await tokenProvider.ValidateQuery(queryString);
-    var token = await tokenProvider.retrieveToken();
-
-// else instruct the client to redirect
+var tokenProvider = new AuthorizationCodeTokenProvider(endpointProvider, "clientId", "clientSecret", "https://redirect.url").WithScopes(new[] string { "scope" });
+// create auth URL
     var redirectUrl = await tokenProvider.GetOAuthRedirect("state");
     /* launch browser window with given redirect URL */
+
+// After successful redirection, validate the auth code to retrieve tokens
+    bool validated = await tokenProvider.ValidateQuery(queryString);
+    var token = await tokenProvider.RetrieveToken();
+```
+
+## Usage - Authorization grant with PKCE
+```C#
+using Trimble.ID;
+var tokenProvider = new AuthorizationCodeTokenProvider(endpointProvider, "clientId", "https://redirect.url").WithScopes(new[] string { "scope" })
+                    .WithProofKeyForCodeExchange(AuthorizationCodeGrantTokenProvider.GenerateCodeVerifier());
+// create auth URL
+    var redirectUrl = await tokenProvider.GetOAuthRedirect("state");
+    /* launch browser window with given redirect URL */
+
+// After successful redirection, validate the auth code to retrieve tokens
+    bool validated = await tokenProvider.ValidateQuery(queryString);
+    var token = await tokenProvider.RetrieveToken();
+    var refreshToken = await tokenProvider.RetrieveRefreshToken();
+    var codeVerifier = await tokenProvider.RetrieveCodeVerifier();
 ```
 
 Trimble.ID.OnBehalfGrantTokenProvider
@@ -123,8 +124,30 @@ This token provider is used to retrieve an access token using the on behalf/ tok
 ## Usage
 ```C#
 using Trimble.ID;
-var tokenProvider = new OnBehalfGrantTokenProvider(endpointProvider, "consumerKey", "consumerSecret", "idToken");
+var tokenProvider = new OnBehalfGrantTokenProvider(endpointProvider, "client_id", "client_secret", "id_token").WithScopes(new[] string { "scope" });
 var token = tokenProvider.RetrieveToken();
+```
+Trimble.ID.RefreshableTokenProvider
+======
+This token provider is used to refresh an access token using a refresh token.
+
+## Usage - With Secret
+```C#
+using Trimble.ID;
+var tokenProvider = new RefreshableTokenProvider(endpointProvider, "clientId")
+                                    .WithConsumerSecret("clientSecret")
+                                    .WithRefreshToken("refreshToken");
+var token = await tokenProvider.RetrieveToken();
+var refreshToken = await tokenProvider.RetrieveRefreshToken();
+```
+## Usage - With PKCE
+```C#
+using Trimble.ID;
+var tokenProvider = new RefreshableTokenProvider(endpointProvider, "clientId")
+                                    .WithProofKeyForCodeExchange("codeVerifier")
+                                    .WithRefreshToken("refreshToken");
+var token = await tokenProvider.RetrieveToken();
+var refreshToken = await tokenProvider.RetrieveRefreshToken();
 ```
 
 Trimble.ID.BasicAuthenticationHttpClientProvider
