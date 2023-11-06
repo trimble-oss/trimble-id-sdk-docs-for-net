@@ -13,7 +13,7 @@ The Trimble Identity(TID) client allows you to add authentication for your .NET 
 
 - [Trimble.ID guide](./docs/core/Index.md) - Our Trimble Identity core SDK to facilitate authentication on various grant types.
 - [Desktop guide](./docs/desktop/Index.md) - Our guide for quickly adding login, logout, retrieve token and user information for desktop applications like WPF/WinForms.
-- [MAUI guide](./docs/Maui/Index.md) - Our guide for quickly adding login, logout, retrieve token and user information for MAUI iOS & Android applications.
+- [MAUI guide](./docs/maui/Index.md) - Our guide for quickly adding login, logout, retrieve token and user information for MAUI iOS & Android applications.
 
 ## Getting Started
 
