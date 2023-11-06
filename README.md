@@ -68,4 +68,4 @@ To provide feedback or report a bug, please [raise an issue on our issue tracker
 
 ## <a name="support">Support</a>
 
-Send email to [cloudplatform_support@trimble.com](mailto:cloudplatform_support@trimble.com)
+Send email to [support@trimble.com](mailto:support@trimble.com)
