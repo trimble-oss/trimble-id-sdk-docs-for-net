@@ -27,4 +27,4 @@ Do you have questions? Do not worry, we have prepared a complete [FAQ](./FAQ.md)
 
 ## <a name="support">Support</a>
 
-Send email to [cloudplatform_support@trimble.com](mailto:cloudplatform_support@trimble.com )
+Send email to [support@trimble.com](mailto:support@trimble.com )
