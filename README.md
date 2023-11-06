@@ -31,9 +31,9 @@ dotnet add package Trimble.ID.Desktop --version 1.0.0
 
 Create a new application in the [Trimble Developer Console](https://developer.console.trimble.com/) portal and configure the following settings:
 
-To register your service application in Trimble Developer Console:
+To register your application in Trimble Developer Console:
 
-1. On the left pane select Identity Management > Applications.
+1. On the left pane select "Applications".
 
 2. On the Applications home page, in the top right corner select + NEW APPLICATION. The Create Application page displays.
 
@@ -42,7 +42,6 @@ To register your service application in Trimble Developer Console:
     | Field       | Description |
     | ----------- | ----------- |
     | Name        | Name of your application                    |
-    | Display Name| Provide a display name of the application.  |
     | Description | Provide a description for the application.  |
 
 4. Configure Grant Type and Token preferences of your application choice.
