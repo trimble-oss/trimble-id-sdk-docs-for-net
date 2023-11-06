@@ -122,7 +122,7 @@ The SDK uses [Isolated storage](https://learn.microsoft.com/en-us/dotnet/standar
   true if the user was successfully logged out
 
   ```csharp
-  var isLoggedIn = mobileAuthenticator.Logout(singleSignOut: true);
+  var isLoggedIn = authenticator.Logout(singleSignOut: true);
   ```
 
 ## <a name="faq">FAQ</a> ##
