@@ -1,3 +1,7 @@
+# 1.0.1
+
+Bug fixes - Launching the browser for the first time on an Android device.
+
 # 1.0.0
 
 Initial stable version of Trimble.ID.Maui SDK
