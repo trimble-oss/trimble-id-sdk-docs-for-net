@@ -1,3 +1,9 @@
+## 1.0.1 (2023-12-14)
+
+* Trimble.ID
+	- Fixed the ValidatedClaimsetProvider incorrectly adds ClockSkew to Now instead of Token Expiry
+    - ValidatedClaimsetProvider Return Dictionary instead of JObject
+
 # 1.0.0
 
 Initial stable version of Trimble.ID SDK
