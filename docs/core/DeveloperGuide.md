@@ -172,6 +172,30 @@ var httpClientProvider = new BearerTokenHttpClientProvider(tokenProvider, new Ur
 var client = httpClientProvider.RetrieveClient();
 ```
 
+Trimble.ID.DeviceAuthorizationTokenProvider
+======
+
+Trimble Identity supports the implementation of device authorization, an OAuth 2.0 grant type, which allows users to sign in to input-constrained devices such as Hololens™ or Oculus™, that cannot handle are not capable of handling the UI workflows associated with authenticating the user with Trimble Identity.
+
+## Usage
+```C#
+using Trimble.ID;
+
+var tokenProvider = new DeviceAuthorizationTokenProvider(_endpointProvider, "CLIENT_ID")
+    .WithClientSecret("CLIENT_SECRET")
+    .WithScopes(new[] { "SCOPE" });
+
+// create authorization
+DeviceAuthorizationResponse authorizationResponse = await _tokenProvider.CreateAuthorization();
+
+// After receiving a successful response from CreateAuthorization,
+// poll for the authorization status and get response via callback
+tokenProvider.PerformTokenRequest(authorizationResponse.DeviceCode, 5, 600, onCallback);
+
+// Once the status is DeviceAuthorizationStatus.ACCESS_GRANTED, you can retrieve access token
+var accessToken = await _tokenProvider.RetrieveToken();
+```
+
 ## <a name="faq">FAQ</a> ##
 
 Do you have questions? Do not worry, we have prepared a complete [FAQ](./FAQ.md) answering the most common questions.

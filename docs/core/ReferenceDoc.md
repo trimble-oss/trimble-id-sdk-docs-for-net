@@ -23,6 +23,15 @@
   - [#ctor(endpointProvider,consumerKey,consumerSecret,productName)](#M-Trimble-ID-ClientCredentialTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String,System-String- 'Trimble.ID.ClientCredentialTokenProvider.#ctor(Trimble.ID.IEndpointProvider,System.String,System.String,System.String)')
   - [RetrieveToken()](#M-Trimble-ID-ClientCredentialTokenProvider-RetrieveToken 'Trimble.ID.ClientCredentialTokenProvider.RetrieveToken')
   - [WithScopes(scopes)](#M-Trimble-ID-ClientCredentialTokenProvider-WithScopes-System-Collections-Generic-IEnumerable{System-String}- 'Trimble.ID.ClientCredentialTokenProvider.WithScopes(System.Collections.Generic.IEnumerable{System.String})')
+- [DeviceAuthorizationTokenProvider](#T-Trimble-ID-DeviceAuthorizationTokenProvider 'Trimble.ID.DeviceAuthorizationTokenProvider')
+  - [#ctor(endpointProvider,clientId,productName)](#M-Trimble-ID-DeviceAuthorizationTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String- 'Trimble.ID.DeviceAuthorizationTokenProvider.#ctor(Trimble.ID.IEndpointProvider,System.String,System.String)')
+  - [CreateAuthorization()](#M-Trimble-ID-DeviceAuthorizationTokenProvider-CreateAuthorization 'Trimble.ID.DeviceAuthorizationTokenProvider.CreateAuthorization')
+  - [PerformTokenRequest(deviceCode,pollInterval,timeout,onCallback)](#M-Trimble-ID-DeviceAuthorizationTokenProvider-PerformTokenRequest-System-String,System-Int32,System-Int32,System-Action{Trimble-ID-DeviceAuthorizationStatus},System-Threading-CancellationToken- 'Trimble.ID.DeviceAuthorizationTokenProvider.PerformTokenRequest(System.String,System.Int32,System.Int32,System.Action{Trimble.ID.DeviceAuthorizationStatus},System.Threading.CancellationToken)')
+  - [RetrieveIdToken()](#M-Trimble-ID-DeviceAuthorizationTokenProvider-RetrieveIdToken 'Trimble.ID.DeviceAuthorizationTokenProvider.RetrieveIdToken')
+  - [RetrieveRefreshToken()](#M-Trimble-ID-DeviceAuthorizationTokenProvider-RetrieveRefreshToken 'Trimble.ID.DeviceAuthorizationTokenProvider.RetrieveRefreshToken')
+  - [RetrieveToken()](#M-Trimble-ID-DeviceAuthorizationTokenProvider-RetrieveToken 'Trimble.ID.DeviceAuthorizationTokenProvider.RetrieveToken')
+  - [WithClientSecret(clientSecret)](#M-Trimble-ID-DeviceAuthorizationTokenProvider-WithClientSecret-System-String- 'Trimble.ID.DeviceAuthorizationTokenProvider.WithClientSecret(System.String)')
+  - [WithScopes(scopes)](#M-Trimble-ID-DeviceAuthorizationTokenProvider-WithScopes-System-Collections-Generic-IEnumerable{System-String}- 'Trimble.ID.DeviceAuthorizationTokenProvider.WithScopes(System.Collections.Generic.IEnumerable{System.String})')
 - [EncryptedStorage](#T-Trimble-ID-EncryptedStorage 'Trimble.ID.EncryptedStorage')
   - [#ctor()](#M-Trimble-ID-EncryptedStorage-#ctor-Trimble-ID-IPersistantStorage,System-Byte[]- 'Trimble.ID.EncryptedStorage.#ctor(Trimble.ID.IPersistantStorage,System.Byte[])')
   - [GetItem()](#M-Trimble-ID-EncryptedStorage-GetItem-System-String- 'Trimble.ID.EncryptedStorage.GetItem(System.String)')
@@ -31,14 +40,16 @@
 - [FixedEndpointProvider](#T-Trimble-ID-FixedEndpointProvider 'Trimble.ID.FixedEndpointProvider')
   - [#ctor(productName)](#M-Trimble-ID-FixedEndpointProvider-#ctor-System-String- 'Trimble.ID.FixedEndpointProvider.#ctor(System.String)')
   - [#ctor()](#M-Trimble-ID-FixedEndpointProvider-#ctor-Trimble-ID-FixedEndpointProvider- 'Trimble.ID.FixedEndpointProvider.#ctor(Trimble.ID.FixedEndpointProvider)')
-  - [#ctor(authorizationEndpoint,tokenEndpoint,userInfoEndpoint,tokenRevocationEndpoint,jwksEndpoint,endSessionEndpoint)](#M-Trimble-ID-FixedEndpointProvider-#ctor-System-Uri,System-Uri,System-Uri,System-Uri,System-Uri,System-Uri- 'Trimble.ID.FixedEndpointProvider.#ctor(System.Uri,System.Uri,System.Uri,System.Uri,System.Uri,System.Uri)')
+  - [#ctor(authorizationEndpoint,tokenEndpoint,userInfoEndpoint,tokenRevocationEndpoint,jwksEndpoint,endSessionEndpoint)](#M-Trimble-ID-FixedEndpointProvider-#ctor-System-Uri,System-Uri,System-Uri,System-Uri,System-Uri,System-Uri,System-Uri- 'Trimble.ID.FixedEndpointProvider.#ctor(System.Uri,System.Uri,System.Uri,System.Uri,System.Uri,System.Uri,System.Uri)')
   - [RetrieveAuthorizationEndpoint()](#M-Trimble-ID-FixedEndpointProvider-RetrieveAuthorizationEndpoint 'Trimble.ID.FixedEndpointProvider.RetrieveAuthorizationEndpoint')
+  - [RetrieveDeviceAuthorizationEndpoint()](#M-Trimble-ID-FixedEndpointProvider-RetrieveDeviceAuthorizationEndpoint 'Trimble.ID.FixedEndpointProvider.RetrieveDeviceAuthorizationEndpoint')
   - [RetrieveEndSessionEndpoint()](#M-Trimble-ID-FixedEndpointProvider-RetrieveEndSessionEndpoint 'Trimble.ID.FixedEndpointProvider.RetrieveEndSessionEndpoint')
   - [RetrieveJSONWebKeySetEndpoint()](#M-Trimble-ID-FixedEndpointProvider-RetrieveJSONWebKeySetEndpoint 'Trimble.ID.FixedEndpointProvider.RetrieveJSONWebKeySetEndpoint')
   - [RetrieveTokenEndpoint()](#M-Trimble-ID-FixedEndpointProvider-RetrieveTokenEndpoint 'Trimble.ID.FixedEndpointProvider.RetrieveTokenEndpoint')
   - [RetrieveTokenRevocationEndpoint()](#M-Trimble-ID-FixedEndpointProvider-RetrieveTokenRevocationEndpoint 'Trimble.ID.FixedEndpointProvider.RetrieveTokenRevocationEndpoint')
   - [RetrieveUserInfoEndpoint()](#M-Trimble-ID-FixedEndpointProvider-RetrieveUserInfoEndpoint 'Trimble.ID.FixedEndpointProvider.RetrieveUserInfoEndpoint')
   - [WithAuthorizationEndpoint(authorizationEndpoint)](#M-Trimble-ID-FixedEndpointProvider-WithAuthorizationEndpoint-System-Uri- 'Trimble.ID.FixedEndpointProvider.WithAuthorizationEndpoint(System.Uri)')
+  - [WithDeviceAuthorizationEndpoint(jwksEndpoint)](#M-Trimble-ID-FixedEndpointProvider-WithDeviceAuthorizationEndpoint-System-Uri- 'Trimble.ID.FixedEndpointProvider.WithDeviceAuthorizationEndpoint(System.Uri)')
   - [WithEndSessionEndpoint(endSessionEndpoint)](#M-Trimble-ID-FixedEndpointProvider-WithEndSessionEndpoint-System-Uri- 'Trimble.ID.FixedEndpointProvider.WithEndSessionEndpoint(System.Uri)')
   - [WithJWKSEndpoint(jwksEndpoint)](#M-Trimble-ID-FixedEndpointProvider-WithJWKSEndpoint-System-Uri- 'Trimble.ID.FixedEndpointProvider.WithJWKSEndpoint(System.Uri)')
   - [WithTokenEndpoint(tokenEndpoint)](#M-Trimble-ID-FixedEndpointProvider-WithTokenEndpoint-System-Uri- 'Trimble.ID.FixedEndpointProvider.WithTokenEndpoint(System.Uri)')
@@ -61,6 +72,7 @@
   - [RetrieveClaimset()](#M-Trimble-ID-IClaimsetProvider-RetrieveClaimset-System-String- 'Trimble.ID.IClaimsetProvider.RetrieveClaimset(System.String)')
 - [IEndpointProvider](#T-Trimble-ID-IEndpointProvider 'Trimble.ID.IEndpointProvider')
   - [RetrieveAuthorizationEndpoint()](#M-Trimble-ID-IEndpointProvider-RetrieveAuthorizationEndpoint 'Trimble.ID.IEndpointProvider.RetrieveAuthorizationEndpoint')
+  - [RetrieveDeviceAuthorizationEndpoint()](#M-Trimble-ID-IEndpointProvider-RetrieveDeviceAuthorizationEndpoint 'Trimble.ID.IEndpointProvider.RetrieveDeviceAuthorizationEndpoint')
   - [RetrieveEndSessionEndpoint()](#M-Trimble-ID-IEndpointProvider-RetrieveEndSessionEndpoint 'Trimble.ID.IEndpointProvider.RetrieveEndSessionEndpoint')
   - [RetrieveJSONWebKeySetEndpoint()](#M-Trimble-ID-IEndpointProvider-RetrieveJSONWebKeySetEndpoint 'Trimble.ID.IEndpointProvider.RetrieveJSONWebKeySetEndpoint')
   - [RetrieveTokenEndpoint()](#M-Trimble-ID-IEndpointProvider-RetrieveTokenEndpoint 'Trimble.ID.IEndpointProvider.RetrieveTokenEndpoint')
@@ -77,6 +89,19 @@
   - [SetItem()](#M-Trimble-ID-IPersistantStorage-SetItem-System-String,System-String- 'Trimble.ID.IPersistantStorage.SetItem(System.String,System.String)')
 - [ITokenProvider](#T-Trimble-ID-ITokenProvider 'Trimble.ID.ITokenProvider')
   - [RetrieveToken()](#M-Trimble-ID-ITokenProvider-RetrieveToken 'Trimble.ID.ITokenProvider.RetrieveToken')
+- [ImplicitGrantTokenProvider](#T-Trimble-ID-ImplicitGrantTokenProvider 'Trimble.ID.ImplicitGrantTokenProvider')
+  - [#ctor(endpointProvider,consumerKey,redirectUrl)](#M-Trimble-ID-ImplicitGrantTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String- 'Trimble.ID.ImplicitGrantTokenProvider.#ctor(Trimble.ID.IEndpointProvider,System.String,System.String)')
+  - [#ctor(endpointProvider,consumerKey,redirectUri)](#M-Trimble-ID-ImplicitGrantTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-Uri- 'Trimble.ID.ImplicitGrantTokenProvider.#ctor(Trimble.ID.IEndpointProvider,System.String,System.Uri)')
+  - [State](#P-Trimble-ID-ImplicitGrantTokenProvider-State 'Trimble.ID.ImplicitGrantTokenProvider.State')
+  - [DecodeHash(hash)](#M-Trimble-ID-ImplicitGrantTokenProvider-DecodeHash-System-String- 'Trimble.ID.ImplicitGrantTokenProvider.DecodeHash(System.String)')
+  - [GetOAuthLogoutRedirect(state)](#M-Trimble-ID-ImplicitGrantTokenProvider-GetOAuthLogoutRedirect-System-String- 'Trimble.ID.ImplicitGrantTokenProvider.GetOAuthLogoutRedirect(System.String)')
+  - [GetOAuthRedirect(state)](#M-Trimble-ID-ImplicitGrantTokenProvider-GetOAuthRedirect-System-String- 'Trimble.ID.ImplicitGrantTokenProvider.GetOAuthRedirect(System.String)')
+  - [RetrieveToken()](#M-Trimble-ID-ImplicitGrantTokenProvider-RetrieveToken 'Trimble.ID.ImplicitGrantTokenProvider.RetrieveToken')
+  - [RevokeToken()](#M-Trimble-ID-ImplicitGrantTokenProvider-RevokeToken 'Trimble.ID.ImplicitGrantTokenProvider.RevokeToken')
+  - [WithIDTokenValidation(persistantStorage,claimsetProvider)](#M-Trimble-ID-ImplicitGrantTokenProvider-WithIDTokenValidation-Trimble-ID-IPersistantStorage,Trimble-ID-IClaimsetProvider- 'Trimble.ID.ImplicitGrantTokenProvider.WithIDTokenValidation(Trimble.ID.IPersistantStorage,Trimble.ID.IClaimsetProvider)')
+  - [WithLogoutRedirect(logoutRedirectUrl)](#M-Trimble-ID-ImplicitGrantTokenProvider-WithLogoutRedirect-System-String- 'Trimble.ID.ImplicitGrantTokenProvider.WithLogoutRedirect(System.String)')
+  - [WithLogoutRedirect(logoutRedirectUri)](#M-Trimble-ID-ImplicitGrantTokenProvider-WithLogoutRedirect-System-Uri- 'Trimble.ID.ImplicitGrantTokenProvider.WithLogoutRedirect(System.Uri)')
+  - [WithScopes(scopes)](#M-Trimble-ID-ImplicitGrantTokenProvider-WithScopes-System-Collections-Generic-IEnumerable{System-String}- 'Trimble.ID.ImplicitGrantTokenProvider.WithScopes(System.Collections.Generic.IEnumerable{System.String})')
 - [IsolatedFileStorage](#T-Trimble-ID-IsolatedFileStorage 'Trimble.ID.IsolatedFileStorage')
   - [#ctor()](#M-Trimble-ID-IsolatedFileStorage-#ctor-System-String- 'Trimble.ID.IsolatedFileStorage.#ctor(System.String)')
   - [GetItem()](#M-Trimble-ID-IsolatedFileStorage-GetItem-System-String- 'Trimble.ID.IsolatedFileStorage.GetItem(System.String)')
@@ -92,6 +117,7 @@
   - [Production](#P-Trimble-ID-OpenIdEndpointProvider-Production 'Trimble.ID.OpenIdEndpointProvider.Production')
   - [Staging](#P-Trimble-ID-OpenIdEndpointProvider-Staging 'Trimble.ID.OpenIdEndpointProvider.Staging')
   - [RetrieveAuthorizationEndpoint()](#M-Trimble-ID-OpenIdEndpointProvider-RetrieveAuthorizationEndpoint 'Trimble.ID.OpenIdEndpointProvider.RetrieveAuthorizationEndpoint')
+  - [RetrieveDeviceAuthorizationEndpoint()](#M-Trimble-ID-OpenIdEndpointProvider-RetrieveDeviceAuthorizationEndpoint 'Trimble.ID.OpenIdEndpointProvider.RetrieveDeviceAuthorizationEndpoint')
   - [RetrieveEndSessionEndpoint()](#M-Trimble-ID-OpenIdEndpointProvider-RetrieveEndSessionEndpoint 'Trimble.ID.OpenIdEndpointProvider.RetrieveEndSessionEndpoint')
   - [RetrieveJSONWebKeySetEndpoint()](#M-Trimble-ID-OpenIdEndpointProvider-RetrieveJSONWebKeySetEndpoint 'Trimble.ID.OpenIdEndpointProvider.RetrieveJSONWebKeySetEndpoint')
   - [RetrieveTokenEndpoint()](#M-Trimble-ID-OpenIdEndpointProvider-RetrieveTokenEndpoint 'Trimble.ID.OpenIdEndpointProvider.RetrieveTokenEndpoint')
@@ -324,7 +350,7 @@ Add Identity Provider to the authorization URL
 
 ##### Summary
 
-Add Redirect URL to an Authorization Grant Token Provider
+Add Redirect URL to an ImplicitGrantTokenProvider
 
 ##### Parameters
 
@@ -341,7 +367,7 @@ This URL must match one of the URLs configured for the calling client
 
 ##### Summary
 
-Add Redirect URL to an Authorization Grant Token Provider
+Add Redirect URL to an ImplicitGrantTokenProvider
 
 ##### Parameters
 
@@ -515,6 +541,158 @@ Fluent extension for adding scopes
 | ---- | ---- | ----------- |
 | scopes | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | The requested scopes |
 
+<a name='T-Trimble-ID-DeviceAuthorizationTokenProvider'></a>
+## DeviceAuthorizationTokenProvider `type`
+
+##### Namespace
+
+Trimble.ID
+
+##### Summary
+
+A token provider based on the Device Authorization grant type
+
+##### Remarks
+
+Implements ITokenProvider
+
+<a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String-'></a>
+### #ctor(endpointProvider,clientId,productName) `constructor`
+
+##### Summary
+
+Public constructor for DeviceAuthorizationTokenProvider class
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| endpointProvider | [Trimble.ID.IEndpointProvider](#T-Trimble-ID-IEndpointProvider 'Trimble.ID.IEndpointProvider') | An endpoint provider that provides the URL for the Trimble Identity token endpoint |
+| clientId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The consumer key for the calling application |
+| productName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The product name of the consuming application (Optional). |
+
+<a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-CreateAuthorization'></a>
+### CreateAuthorization() `method`
+
+##### Summary
+
+Request authorization
+
+##### Returns
+
+DeviceAuthorizationResponse that contains user code, device code and verification uri
+
+##### Parameters
+
+This method has no parameters.
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the device authorization endpoint fails |
+
+<a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-PerformTokenRequest-System-String,System-Int32,System-Int32,System-Action{Trimble-ID-DeviceAuthorizationStatus},System-Threading-CancellationToken-'></a>
+### PerformTokenRequest(deviceCode,pollInterval,timeout,onCallback) `method`
+
+##### Summary
+
+Performs token request
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| deviceCode | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Device code to perform token request |
+| pollInterval | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Time interval between each request |
+| timeout | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The maximum time until the request times out |
+| onCallback | [System.Action{Trimble.ID.DeviceAuthorizationStatus}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{Trimble.ID.DeviceAuthorizationStatus}') | Callback method to check whether the device has been authorized |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.TimeoutException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.TimeoutException 'System.TimeoutException') | Thrown when a token request times out |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the token endpoint fails |
+
+<a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-RetrieveIdToken'></a>
+### RetrieveIdToken() `method`
+
+##### Summary
+
+Retrieves a id token for the application
+
+##### Returns
+
+Id token
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-RetrieveRefreshToken'></a>
+### RetrieveRefreshToken() `method`
+
+##### Summary
+
+Retrieves a refresh token for the application
+
+##### Returns
+
+Refresh token
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-RetrieveToken'></a>
+### RetrieveToken() `method`
+
+##### Summary
+
+Retrieves an access token for the application
+
+##### Returns
+
+A Task that resolves to the value of the access token on completion
+
+##### Parameters
+
+This method has no parameters.
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a token endpoint is not provided by the endpoint provider |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the token endpoint fails |
+
+<a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-WithClientSecret-System-String-'></a>
+### WithClientSecret(clientSecret) `method`
+
+##### Summary
+
+Fluent extension for adding client secret
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| clientSecret | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The client secret for the calling application |
+
+<a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-WithScopes-System-Collections-Generic-IEnumerable{System-String}-'></a>
+### WithScopes(scopes) `method`
+
+##### Summary
+
+Fluent extension for adding scopes
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| scopes | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | The requested scopes |
+
 <a name='T-Trimble-ID-EncryptedStorage'></a>
 ## EncryptedStorage `type`
 
@@ -621,7 +799,7 @@ Protected copy constructor for FixedEndpointProvider class
 
 This constructor has no parameters.
 
-<a name='M-Trimble-ID-FixedEndpointProvider-#ctor-System-Uri,System-Uri,System-Uri,System-Uri,System-Uri,System-Uri-'></a>
+<a name='M-Trimble-ID-FixedEndpointProvider-#ctor-System-Uri,System-Uri,System-Uri,System-Uri,System-Uri,System-Uri,System-Uri-'></a>
 ### #ctor(authorizationEndpoint,tokenEndpoint,userInfoEndpoint,tokenRevocationEndpoint,jwksEndpoint,endSessionEndpoint) `constructor`
 
 ##### Summary
@@ -649,6 +827,21 @@ Implements IEndpointProvider
 ##### Summary
 
 Retrieves a URL for the Trimble Identity authorization endpoint
+
+##### Returns
+
+A Task that resolves to the value of the URL on completion
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Trimble-ID-FixedEndpointProvider-RetrieveDeviceAuthorizationEndpoint'></a>
+### RetrieveDeviceAuthorizationEndpoint() `method`
+
+##### Summary
+
+Retrieves a URL for the Trimble Identity device authorization endpoint
 
 ##### Returns
 
@@ -749,6 +942,19 @@ A new instance of a FixedEndpointProvider
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | authorizationEndpoint | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The URL for the Trimble Identity authorization endpoint |
+
+<a name='M-Trimble-ID-FixedEndpointProvider-WithDeviceAuthorizationEndpoint-System-Uri-'></a>
+### WithDeviceAuthorizationEndpoint(jwksEndpoint) `method`
+
+##### Returns
+
+A new instance of a FixedEndpointProvider
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| jwksEndpoint | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The URL for the Trimble Identity device authorization endpoint |
 
 <a name='M-Trimble-ID-FixedEndpointProvider-WithEndSessionEndpoint-System-Uri-'></a>
 ### WithEndSessionEndpoint(endSessionEndpoint) `method`
@@ -1111,6 +1317,21 @@ A Task that resolves to the value of the URL on completion
 
 This method has no parameters.
 
+<a name='M-Trimble-ID-IEndpointProvider-RetrieveDeviceAuthorizationEndpoint'></a>
+### RetrieveDeviceAuthorizationEndpoint() `method`
+
+##### Summary
+
+Retrieves a URL for the Trimble Identity device authorization endpoint
+
+##### Returns
+
+A Task that resolves to the value of the URL on completion
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-Trimble-ID-IEndpointProvider-RetrieveEndSessionEndpoint'></a>
 ### RetrieveEndSessionEndpoint() `method`
 
@@ -1317,6 +1538,249 @@ A Task that resolves to the value of the access token on completion
 
 This method has no parameters.
 
+<a name='T-Trimble-ID-ImplicitGrantTokenProvider'></a>
+## ImplicitGrantTokenProvider `type`
+
+##### Namespace
+
+Trimble.ID
+
+##### Summary
+
+A token provider based on the OAuth Implicit grant type
+
+##### Example
+
+```csharp
+const string CONSUMER_KEY = "APPLICATION_CONSUMER_KEY";
+const string REDIRECT_URL = "http://localhost:8080";
+const string AUTHORIZATION_ENDPOINT = "https://identity.trimble.com/authorize";
+const string TOKEN_ENDPOINT = "https://identity.trimble.com/token?tenantDomain=trimble.com";
+var endpointProvider = new FixedEndpointProvider(new Uri(AUTHORIZATION_ENDPOINT, UriKind.Absolute), new Uri(TOKEN_ENDPOINT, UriKind.Absolute));
+var tokenProvider = new ImplicitGrantTokenProvider(endpointProvider, CONSUMER_KEY, REDIRECT_URL);
+var token = await tokenProvider.RetrieveToken();
+```
+
+##### Remarks
+
+Implements ITokenProvider
+
+<a name='M-Trimble-ID-ImplicitGrantTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String-'></a>
+### #ctor(endpointProvider,consumerKey,redirectUrl) `constructor`
+
+##### Summary
+
+Public constructor for ImplicitGrantTokenProvider class
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| endpointProvider | [Trimble.ID.IEndpointProvider](#T-Trimble-ID-IEndpointProvider 'Trimble.ID.IEndpointProvider') | An endpoint provider that provides the URL for the Trimble Identity authorization and token endpoints |
+| consumerKey | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The consumer key for the calling application |
+| redirectUrl | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The URL to which Trimble Identity should redirect after successfully authenticating a user |
+
+##### Remarks
+
+Implements ITokenProvider
+
+<a name='M-Trimble-ID-ImplicitGrantTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-Uri-'></a>
+### #ctor(endpointProvider,consumerKey,redirectUri) `constructor`
+
+##### Summary
+
+Public constructor for ImplicitGrantTokenProvider class
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| endpointProvider | [Trimble.ID.IEndpointProvider](#T-Trimble-ID-IEndpointProvider 'Trimble.ID.IEndpointProvider') | An endpoint provider that provides the URL for the Trimble Identity authorization and token endpoints |
+| consumerKey | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The consumer key for the calling application |
+| redirectUri | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The URL to which Trimble Identity should redirect after successfully authenticating a user |
+
+##### Remarks
+
+Implements ITokenProvider
+
+<a name='P-Trimble-ID-ImplicitGrantTokenProvider-State'></a>
+### State `property`
+
+<a name='M-Trimble-ID-ImplicitGrantTokenProvider-DecodeHash-System-String-'></a>
+### DecodeHash(hash) `method`
+
+##### Summary
+
+Validate the hash parameters passed back to the application by Trimble Identity
+
+##### Returns
+
+An awaitable Task
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| hash | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The hash string from the URL |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a token endpoint is not provided by the endpoint provider |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the token endpoint fails |
+
+<a name='M-Trimble-ID-ImplicitGrantTokenProvider-GetOAuthLogoutRedirect-System-String-'></a>
+### GetOAuthLogoutRedirect(state) `method`
+
+##### Summary
+
+Return a redirect URL to log out of all Trimble Identity applications
+
+##### Returns
+
+A Task that resolves to the value of the redirect URL on completion
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| state | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An optional state parameter that will be passed back to the caller via the redirect URL |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when an ID token is not available |
+
+<a name='M-Trimble-ID-ImplicitGrantTokenProvider-GetOAuthRedirect-System-String-'></a>
+### GetOAuthRedirect(state) `method`
+
+##### Summary
+
+Get a redirect URL for Trimble Identity
+
+##### Returns
+
+An awaitable Task that resolves to the redirect URL
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| state | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An optional state parameter that will be passed back to the caller via the redirect URL |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when an authorization endpoint is not provided by the endpoint provider |
+
+<a name='M-Trimble-ID-ImplicitGrantTokenProvider-RetrieveToken'></a>
+### RetrieveToken() `method`
+
+##### Summary
+
+Retrieves an access token for the authenticated user
+
+##### Returns
+
+A Task that resolves to the value of the access token on completion
+
+##### Parameters
+
+This method has no parameters.
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a token endpoint is not provided by the endpoint provider |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the token endpoint fails |
+
+<a name='M-Trimble-ID-ImplicitGrantTokenProvider-RevokeToken'></a>
+### RevokeToken() `method`
+
+##### Summary
+
+Revoke the token for the authenticated user and return a redirect URL to log them out of all Trimble Identity applications
+
+##### Returns
+
+A Task that resolves to the value of the redirect URL on completion
+
+##### Parameters
+
+This method has no parameters.
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a token revocation endpoint is not provided by the endpoint provider |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the token revocation endpoint fails |
+
+<a name='M-Trimble-ID-ImplicitGrantTokenProvider-WithIDTokenValidation-Trimble-ID-IPersistantStorage,Trimble-ID-IClaimsetProvider-'></a>
+### WithIDTokenValidation(persistantStorage,claimsetProvider) `method`
+
+##### Summary
+
+Add ID token validation to an ImplicitGrantTokenProvider
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| persistantStorage | [Trimble.ID.IPersistantStorage](#T-Trimble-ID-IPersistantStorage 'Trimble.ID.IPersistantStorage') | A store that persists the nonce value during the OAuth redirect workflow |
+| claimsetProvider | [Trimble.ID.IClaimsetProvider](#T-Trimble-ID-IClaimsetProvider 'Trimble.ID.IClaimsetProvider') | A claimset provider that returns the JSON web keyset for validating the JWT ID token |
+
+<a name='M-Trimble-ID-ImplicitGrantTokenProvider-WithLogoutRedirect-System-String-'></a>
+### WithLogoutRedirect(logoutRedirectUrl) `method`
+
+##### Summary
+
+Add Redirect URL to an ImplicitGrantTokenProvider
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| logoutRedirectUrl | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A URL which the browser will return to after logout |
+
+##### Remarks
+
+This URL must match one of the URLs configured for the calling client
+
+<a name='M-Trimble-ID-ImplicitGrantTokenProvider-WithLogoutRedirect-System-Uri-'></a>
+### WithLogoutRedirect(logoutRedirectUri) `method`
+
+##### Summary
+
+Add Redirect URL to an ImplicitGrantTokenProvider
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| logoutRedirectUri | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | A URL which the browser will return to after logout |
+
+##### Remarks
+
+This URL must match one of the URLs configured for the calling client
+
+<a name='M-Trimble-ID-ImplicitGrantTokenProvider-WithScopes-System-Collections-Generic-IEnumerable{System-String}-'></a>
+### WithScopes(scopes) `method`
+
+##### Summary
+
+Fluent extension for adding scopes
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| scopes | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | The requested scopes |
+
 <a name='T-Trimble-ID-IsolatedFileStorage'></a>
 ## IsolatedFileStorage `type`
 
@@ -1520,6 +1984,27 @@ Public constructor for OpenIdEndpointProvider class
 ##### Summary
 
 Retrieves a URL for the Trimble Identity authorization endpoint
+
+##### Returns
+
+A Task that resolves to the value of the URL on completion
+
+##### Parameters
+
+This method has no parameters.
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown if the configuration endpoint returns an error |
+
+<a name='M-Trimble-ID-OpenIdEndpointProvider-RetrieveDeviceAuthorizationEndpoint'></a>
+### RetrieveDeviceAuthorizationEndpoint() `method`
+
+##### Summary
+
+Retrieves a URL for the Trimble Identity device authorization endpoint
 
 ##### Returns
 
