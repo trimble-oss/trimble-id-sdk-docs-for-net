@@ -1,3 +1,9 @@
+## 1.1.0 (2024-01-19)
+
+* Trimble.ID
+	- Device Authorization Grant token provider support for input constrained devices
+   	- Some improvements
+
 ## 1.0.1 (2023-12-14)
 
 * Trimble.ID
