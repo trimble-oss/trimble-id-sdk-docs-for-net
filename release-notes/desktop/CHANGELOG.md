@@ -1,3 +1,7 @@
+# 1.0.1 (2024-02-28)
+- Addressed backward compatibility issue
+- Improved analytics tracking
+
 # 1.0.0
 
 Initial stable version of Trimble.ID.Desktop SDK
