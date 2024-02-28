@@ -1,8 +1,8 @@
 ## 1.1.1 (2024-02-28)
 
-- Trimble.ID
+* Trimble.ID
 	- Addressed a backward compatibility issue
-    	- Improved analytics tracking
+	- Improved analytics tracking
 
 ## 1.1.0 (2024-01-19)
 
@@ -14,7 +14,7 @@
 
 * Trimble.ID
 	- Fixed the ValidatedClaimsetProvider incorrectly adds ClockSkew to Now instead of Token Expiry
-    - ValidatedClaimsetProvider Return Dictionary instead of JObject
+	- ValidatedClaimsetProvider Return Dictionary instead of JObject
 
 # 1.0.0
 
