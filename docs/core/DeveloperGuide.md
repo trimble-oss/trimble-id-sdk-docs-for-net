@@ -196,6 +196,18 @@ tokenProvider.PerformTokenRequest(authorizationResponse.DeviceCode, 5, 600, onCa
 var accessToken = await _tokenProvider.RetrieveToken();
 ```
 
+Trimble.ID.ValidatedClaimsetProvider
+======
+Provides the validated claimset for a JSON web token.
+
+## Usage
+```C#
+using Trimble.ID;
+var keysetProvider = new OpenIdKeySetProvider(endpointProvider);
+var claimsetProvider = new ValidatedClaimsetProvider(keysetProvider);
+var claimset = await claimsetProvider.RetrieveClaimset(idToken);
+```
+
 ## <a name="faq">FAQ</a> ##
 
 Do you have questions? Do not worry, we have prepared a complete [FAQ](./FAQ.md) answering the most common questions.
