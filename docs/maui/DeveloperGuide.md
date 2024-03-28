@@ -4,7 +4,7 @@
 
 1. [Overview](#overview)
 2. [Authentication with Trimble Identity](#identity)
-3. [Code Snippets](#code-snippets)
+3. [Code Snippets](#code_snippets)
     + [Configure MobileAuthenticator](#configure_authenticator)
     + [Set the current view to launch browser](#set_currentview)
     + [Handling the redirect](#handle_redirect)
@@ -19,9 +19,9 @@
 
 ## <a name="overview">Overview</a> ##
 
-The Trimble Identity MAUI SDK is a .NET MAUI Class Library that implements the PKCE OAuth grant, which is used to secure authorization codes in public clients with custom URI scheme redirects. 
+The Trimble Identity MAUI SDK is a .NET MAUI Class Library that implements the PKCE OAuth grant, which is used to secure authorization codes in public clients with custom URI scheme redirects (Android/iOS) and http scheme redirects (Windows). 
 
-.NET MAUI TID SDK `MobileAuthenticator` lets you start the authentication flow and listens to callback to a specific Custom Redirect URI registered in the application.
+.NET MAUI TID SDK `MobileAuthenticator` lets you start the authentication flow and listens to callback to a specific redirect URI registered in the application.
 
 This SDK helps to authenticate users by exposing functionalities like,
  - Login
@@ -187,119 +187,121 @@ To disable Secure storage, set `EnableTokenPersistence` to false in `MobileAuthe
 
 <b>Summary</b>
 
-  Log the user in. On Login, MobileAuthenticator launches the browser and listens to a callback redirect by invoking OnReceive() to complete authorization flow.
+Log the user in. On Login, MobileAuthenticator launches the browser and listens to a callback redirect by invoking OnReceive() to complete authorization flow.
 
-  <b>Returns</b>
+<b>Returns</b>
 
-  true if the user was successfully logged in
+true if the user was successfully logged in
 
-  ```csharp
-  var isLoggedIn = mobileAuthenticator.Login(); 
-  ```
+```csharp
+var isLoggedIn = mobileAuthenticator.Login(); 
+```
 
-  In <b>Android</b>, the end application has to invoke `OnReceive(state, code)` of MobileAuthenticator from activity created to handle redirect.
+In <b>Android</b>, the end application has to invoke `OnReceive(state, code)` of MobileAuthenticator from activity created to handle redirect.
 
-  ```csharp
-  public class RedirectUriReceiverActivity : Activity
-  {
-      private readonly MobileAuthenticator _mobileAuthenticator = MauiApplication.Current.Services.GetService<MobileAuthenticator>();
+```csharp
+public class RedirectUriReceiverActivity : Activity
+{
+    private readonly MobileAuthenticator _mobileAuthenticator = MauiApplication.Current.Services.GetService<MobileAuthenticator>();
 
-      protected override void OnCreate(Bundle savedInstanceState)
-      {
+    protected override void OnCreate(Bundle savedInstanceState)
+    {
 
-          base.OnCreate(savedInstanceState);
+        base.OnCreate(savedInstanceState);
 
-          new Task(async () =>
-           {
-               await _mobileAuthenticator.OnReceive(this.Intent.Data.GetQueryParameter("state"), this.Intent.Data.GetQueryParameter("code"));
-
-           })
-           .Start();
-
-          this.Finish();
-
-      }
-  ```
-
-  In <b>iOS</b>, the end application has to invoke `OnReceive(query)` of MobileAuthenticator from `Appdelegate class` to complete Login. 
-
-  ```csharp
-  [Register("AppDelegate")]
-  public class AppDelegate : MauiUIApplicationDelegate
-  {
-      protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
-
-      public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
-      {
-          new Task(async () =>
+        new Task(async () =>
           {
-
-              await MauiUIApplicationDelegate.Current.Services.GetService<MobileAuthenticator>().OnReceive(url.Query);
+              await _mobileAuthenticator.OnReceive(this.Intent.Data.GetQueryParameter("state"), this.Intent.Data.GetQueryParameter("code"));
 
           })
           .Start();
-          return true;
-      }
-  }
-  ```
 
-  In <b>Windows</b>, the SDK internally internally validates the state and code of MobileAuthenticator to complete Login. No action is required from the end application.
+        this.Finish();
+
+    }
+```
+
+In <b>iOS</b>, the end application has to invoke `OnReceive(query)` of MobileAuthenticator from `Appdelegate class` to complete Login. 
+
+```csharp
+[Register("AppDelegate")]
+public class AppDelegate : MauiUIApplicationDelegate
+{
+    protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+
+    public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+    {
+        new Task(async () =>
+        {
+
+            await MauiUIApplicationDelegate.Current.Services.GetService<MobileAuthenticator>().OnReceive(url.Query);
+
+        })
+        .Start();
+        return true;
+    }
+}
+```
+
+In <b>Windows</b>, the SDK internally internally validates the state and code of MobileAuthenticator to complete Login. No action is required from the end application.
 
 ### <a name="example_logout">How to Logout</a> ###
 
 <b>Summary</b>
 
-  Log the user out. 
+Log the user out. 
 
 <b>Returns</b>
 
-  true if the user was successfully logged out
+true if the user was successfully logged out
 
-  ```csharp
-  var isLoggedIn = mobileAuthenticator.Logout(singleSignOut: true);
-  ```
+```csharp
+var isLoggedIn = mobileAuthenticator.Logout(singleSignOut: true);
+```
 
-  Set singleSignOut to true to sign out of all SSO session. On Logout, MobileAuthenticator launches the browser and listens for callback redirect using OnReceive() to complete Logout when singleSignOut = true . The same OnReceive() method handles redirect for Login and Logout.
+Set singleSignOut to true to sign out of all SSO session. On Logout, MobileAuthenticator launches the browser and listens for callback redirect using OnReceive() to complete Logout when singleSignOut = true . The same OnReceive() method handles redirect for Login and Logout.
 
-  By default singleSignOut is set to false when Logout() is invoked which helps user to logout without clearing the browser session.
+By default singleSignOut is set to false when Logout() is invoked which helps user to logout without clearing the browser session.
 
 ### <a name="example_access_token">How to get an access token</a> ###
 
 <b>Summary</b>
 
-  Retrieves access token of authenticated user
+Retrieves access token of authenticated user. 
 
-  <b>Returns</b>
+> **_NOTE:_**  If the access token has expired, then the SDK refreshes the access token internally and returns the new access token. 
 
-  Access token of authenticated user
+<b>Returns</b>
 
-  ```csharp
-  var accessToken = await mobileAuthenticator.TokenProvider.RetrieveToken();
-  ```
+Access token of authenticated user
 
-### <a name="example_loggedin_state">How to know logged-in state</a> ###
+```csharp
+var accessToken = await mobileAuthenticator.TokenProvider.RetrieveToken();
+```
+
+### <a name="example_loggedin_state">How to know the logged-in state</a> ###
 
 <b>Summary</b>
 
-  Get the logged in state
+Get the logged in state
 
-  ```csharp
-  var isLoggedIn = mobileAuthenticator.IsLoggedIn;
-  ```
+```csharp
+var isLoggedIn = mobileAuthenticator.IsLoggedIn;
+```
 
 ### <a name="example_user_info">How to get logged-in user info</a> ###
 
- <b>Summary</b>
+<b>Summary</b>
 
-  Validates the ID token and returns user claims
+Validates the ID token and returns user claims
 
-  <b>Returns</b>
+<b>Returns</b>
 
-  User claims from the ID token
+User claims from the ID token
 
-  ```csharp
-  var userInfo = await mobileAuthenticator.GetUserInfo();
-  ```
+```csharp
+var userInfo = await mobileAuthenticator.GetUserInfo();
+```
 
 ## <a name="faq">FAQ</a> ##
 
