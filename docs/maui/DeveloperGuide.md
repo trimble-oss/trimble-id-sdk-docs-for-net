@@ -13,8 +13,8 @@
     + [Example: How to Login](#example_login) 
     + [Example: How to Logout](#example_logout)
     + [Example: How to get an access token](#example_access_token)
-    + [Example: How to know logged-in state](#example_loggedin_state)
-    + [Example: How to get logged-in user info](#example_user_info)
+    + [Example: How to know the logged-in state](#example_loggedin_state)
+    + [Example: How to get the logged-in user info](#example_user_info)
 6. [FAQ](#faq)
 
 ## <a name="overview">Overview</a> ##
@@ -289,7 +289,7 @@ Get the logged in state
 var isLoggedIn = mobileAuthenticator.IsLoggedIn;
 ```
 
-### <a name="example_user_info">How to get logged-in user info</a> ###
+### <a name="example_user_info">How to get the logged-in user info</a> ###
 
 <b>Summary</b>
 
