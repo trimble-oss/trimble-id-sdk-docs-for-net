@@ -34,7 +34,8 @@ This SDK helps to authenticate users by exposing functionalities like,
 Once the authorization flow is completed in the browser, application will redirect to a URI specified as part of the authorization request, providing the response via query parameters. In order for your app to capture this response:
 
 - <b>Android/iOS</b>: uses a custom scheme based redirect URI (`scheme:/path`)
-- <b>Windows</b>: uses a http scheme based redirect URI (`http://localhost:port`)
+- <b>Windows</b>: uses a http scheme based redirect URI (`http://localhost:port/callback`)
+    - For example: http://localhost/callback, http://127.0.0.1:3000/login
  
 ## <a name="identity">Authentication with Trimble Identity</a> ##
 
@@ -53,15 +54,18 @@ var options = new MobileAuthenticatorOptions
     ClientId = "<CLIENT_ID>",
     Scopes = new[] { "<SCOPES>" },
 #if WINDOWS
-    RedirectUri = "<LOCALHOST_REDIRECT_URI>",
+    RedirectUri = "<LOCALHOST_REDIRECT_URI>", // eg: http://localhost/callback
 #else
-    RedirectUri = "<REDIRECT_URI>",
+    RedirectUri = "<CUSTOM_REDIRECT_URI>",  // eg: com.trimble.sample://oauth2redirect
 #endif
     EnableTokenPersistence = true
   };
 
 builder.Services.AddSingleton(new MobileAuthenticator(options))
 ```
+
+
+
 
 ### <a name="set_currentview">Set the current view to launch browser</a> ###
 
@@ -166,7 +170,9 @@ Add your app's Custom Redirect URI scheme to the Platforms/iOS/Info.plist.
 
 <b>Windows</b>
 
-No platform-specific setup is required. The SDK internally handles the redirect.
+No platform-specific setup is required. The SDK internally handles the redirect. 
+
+SDK starts a `LocalhostListener` and listens for callback on the specified localhost redirect uri. When callback is received SDK internally validates the code and returns `isLoggedIn` as true if login was successful.
 
 ## <a name="persistent_storage">Persistent Storage</a> ##
 
