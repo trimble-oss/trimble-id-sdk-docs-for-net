@@ -64,9 +64,6 @@ var options = new MobileAuthenticatorOptions
 builder.Services.AddSingleton(new MobileAuthenticator(options))
 ```
 
-
-
-
 ### <a name="set_currentview">Set the current view to launch browser</a> ###
 
 Once the MobileAuthenticator instance is created, we must pass the Activity/ViewController in Android/iOS that launches browser during login/logout to the MobileAuthenticator instance. To achieve this the following platform-specific method calls are required:

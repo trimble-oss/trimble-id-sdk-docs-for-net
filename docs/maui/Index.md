@@ -26,7 +26,7 @@ Here is useful information for you getting started with SDK:
 
   This SDK supports application built on `.NET8.0`.
 
-  Target Frameworks - `.NET8.0-android` and `.NET8.0-ios` and `net7.0-windows`.
+  Target Frameworks - `.NET8.0-android`, `.NET8.0-ios` and `net7.0-windows`.
 
   - **Android** : supports Android API 21 and above.
   - **iOS** : supports 12.0 and above.
@@ -36,7 +36,7 @@ Here is useful information for you getting started with SDK:
 
   - **Android** : `CustomTabs` are used to launch browser whenever available, otherwise the system browser is used as a fallback.
   - **iOS** : `SFSafariViewController` is used to launch browser if available, otherwise Safari.
-  - **Windows** : `LocalHostListener` is used listen to the callback from browser.
+  - **Windows** : User's default browser is launched.
 
 ## <a name="faq">Frequently asked questions</a>
 
