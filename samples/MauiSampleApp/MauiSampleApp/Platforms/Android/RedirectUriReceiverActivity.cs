@@ -12,7 +12,7 @@ namespace MauiSampleApp;
 
 public class RedirectUriReceiverActivity : Activity
 {
-    private readonly MobileAuthenticator _mobileAuthenticator = MauiApplication.Current.Services.GetService<MobileAuthenticator>();
+    private readonly MobileAuthenticator _mobileAuthenticator = IPlatformApplication.Current.Services.GetService<MobileAuthenticator>();
 
     protected override void OnCreate(Bundle savedInstanceState)
     {

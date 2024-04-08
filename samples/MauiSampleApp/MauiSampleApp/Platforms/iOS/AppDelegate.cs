@@ -13,7 +13,7 @@ public class AppDelegate : MauiUIApplicationDelegate
     {
         new Task(async () =>
         {
-            await Current.Services.GetService<MobileAuthenticator>().OnReceive(url.Query);
+            await IPlatformApplication.Current.Services.GetService<MobileAuthenticator>().OnReceive(url.Query);
         })
         .Start();
         return true;

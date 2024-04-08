@@ -1,12 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.trimble.mauisampleapp">
-	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="33" />
     <queries>
 		 <intent>
 			<action android:name="android.support.customtabs.action.CustomTabsService" />
 		</intent>
-</queries>
-        <application android:allowBackup="false" android:icon="@mipmap/appicon" android:supportsRtl="true" android:label="MauiSampleApp">
-	</application>
+	</queries>
+    <application android:allowBackup="false" android:icon="@mipmap/appicon" android:supportsRtl="true" android:label="MauiSampleApp"></application>
 	<uses-permission android:name="android.permission.INTERNET" />
 </manifest>
