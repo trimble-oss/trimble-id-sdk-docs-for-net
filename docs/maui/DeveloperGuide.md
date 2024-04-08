@@ -4,18 +4,18 @@
 
 1. [Overview](#overview)
 2. [Authentication with Trimble Identity](#identity)
-3. [Code Snippets](#code_snippets)
+3. [Configure Client](#configure_client)
     + [Configure MobileAuthenticator](#configure_authenticator)
     + [Set the current view to launch browser](#set_currentview)
     + [Handling the redirect](#handle_redirect)
-4. [Persistent Storage](#persistent_storage)
-5. [Examples](#examples)
+    + [Persistent Storage](#persistent_storage)
+4. [Code Snippets](#code_snippets)
     + [Example: How to Login](#example_login) 
     + [Example: How to Logout](#example_logout)
     + [Example: How to get an access token](#example_access_token)
     + [Example: How to know the logged-in state](#example_loggedin_state)
     + [Example: How to get the logged-in user info](#example_user_info)
-6. [FAQ](#faq)
+5. [FAQ](#faq)
 
 ## <a name="overview">Overview</a> ##
 
@@ -41,7 +41,7 @@ Once the authorization flow is completed in the browser, application will redire
 
 To utilize TID authentication, your identity application must be registered with Trimble Identity. You can conveniently handle the application registration process on [Trimble Developer Console](https://console.trimble.com).
 
-## <a name="code_snippets">Code Snippets</a> ##
+## <a name="configure_client">Configure Client</a> ##
 
 ### <a name="configure_authenticator">Configure MobileAuthenticator</a> ###
 
@@ -63,6 +63,8 @@ var options = new MobileAuthenticatorOptions
 
 builder.Services.AddSingleton(new MobileAuthenticator(options))
 ```
+
+> **_NOTE:_**  Windows supports only localhost redirection and does not support any custom URI.
 
 ### <a name="set_currentview">Set the current view to launch browser</a> ###
 
@@ -171,7 +173,7 @@ No platform-specific setup is required. The SDK internally handles the redirect.
 
 SDK starts a `LocalhostListener` and listens for callback on the specified localhost redirect uri. When callback is received SDK internally validates the code and returns `isLoggedIn` as true if login was successful.
 
-## <a name="persistent_storage">Persistent Storage</a> ##
+### <a name="persistent_storage">Persistent Storage</a> ###
 
 The SDK uses Secure Storage for token persistence. It stores data in key and value pairs and gets deleted once the app is uninstalled.
 Each platform uses the platform provided native API's for storing data securely:
@@ -184,9 +186,9 @@ Each platform uses the platform provided native API's for storing data securely:
 
 To disable Secure storage, set `EnableTokenPersistence` to false in `MobileAuthenticatorOptions` while instantiating `MobileAuthenticator`.
 
-## <a name="examples">Examples</a> ##
+## <a name="code_snippets">Code Snippets</a> ##
 
-### <a name="example_login">How to Login</a> ###
+### <a name="example_login">Example: How to Login</a> ###
 
 <b>Summary</b>
 
@@ -248,7 +250,7 @@ public class AppDelegate : MauiUIApplicationDelegate
 
 In <b>Windows</b>, the SDK internally validates the state and code of MobileAuthenticator to complete Login. No action is required from the end application.
 
-### <a name="example_logout">How to Logout</a> ###
+### <a name="example_logout">Example: How to Logout</a> ###
 
 <b>Summary</b>
 
@@ -266,7 +268,7 @@ Set singleSignOut to true to sign out of all SSO session. On Logout, MobileAuthe
 
 By default singleSignOut is set to false when Logout() is invoked which helps user to logout without clearing the browser session.
 
-### <a name="example_access_token">How to get an access token</a> ###
+### <a name="example_access_token">Example: How to get an access token</a> ###
 
 <b>Summary</b>
 
@@ -282,7 +284,7 @@ Access token of authenticated user
 var accessToken = await mobileAuthenticator.TokenProvider.RetrieveToken();
 ```
 
-### <a name="example_loggedin_state">How to know the logged-in state</a> ###
+### <a name="example_loggedin_state">Example: How to know the logged-in state</a> ###
 
 <b>Summary</b>
 
@@ -292,7 +294,7 @@ Get the logged in state
 var isLoggedIn = mobileAuthenticator.IsLoggedIn;
 ```
 
-### <a name="example_user_info">How to get the logged-in user info</a> ###
+### <a name="example_user_info">Example: How to get the logged-in user info</a> ###
 
 <b>Summary</b>
 
