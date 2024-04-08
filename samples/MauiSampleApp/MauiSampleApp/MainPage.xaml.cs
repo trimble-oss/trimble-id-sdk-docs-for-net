@@ -15,6 +15,8 @@ public partial class MainPage : ContentPage
         _mobileAuthenticator = mobileAuthenticator.WithViewController(Platform.GetCurrentUIViewController());
 #elif ANDROID
         _mobileAuthenticator = mobileAuthenticator.WithActivity(Platform.CurrentActivity);
+#elif WINDOWS
+        _mobileAuthenticator = mobileAuthenticator;
 #endif
         new Task(async () =>
         {

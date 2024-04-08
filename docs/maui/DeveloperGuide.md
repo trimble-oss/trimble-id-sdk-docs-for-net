@@ -224,7 +224,7 @@ public class RedirectUriReceiverActivity : Activity
     }
 ```
 
-In <b>iOS</b>, the end application has to invoke `OnReceive(query)` of MobileAuthenticator from `Appdelegate class` to complete Login. 
+In <b>iOS</b>, the end application has to invoke `OnReceive(query)` of MobileAuthenticator from `AppDelegate` class to complete Login. 
 
 ```csharp
 [Register("AppDelegate")]
@@ -246,7 +246,7 @@ public class AppDelegate : MauiUIApplicationDelegate
 }
 ```
 
-In <b>Windows</b>, the SDK internally internally validates the state and code of MobileAuthenticator to complete Login. No action is required from the end application.
+In <b>Windows</b>, the SDK internally validates the state and code of MobileAuthenticator to complete Login. No action is required from the end application.
 
 ### <a name="example_logout">How to Logout</a> ###
 
@@ -272,7 +272,7 @@ By default singleSignOut is set to false when Logout() is invoked which helps us
 
 Retrieves access token of authenticated user. 
 
-> **_NOTE:_**  If the access token has expired, then the SDK refreshes the access token internally and returns the new access token. 
+> **_NOTE:_**  If the access token has expired, then the SDK refreshes the access token internally and returns the new access token.
 
 <b>Returns</b>
 
@@ -308,4 +308,4 @@ var userInfo = await mobileAuthenticator.GetUserInfo();
 
 ## <a name="faq">FAQ</a> ##
 
-Do you have questions? Do not worry, we have prepared a complete [FAQ](./faq.md) answering the most common questions.
+Do you have questions? Do not worry, we have prepared a complete [FAQ](./FAQ.md) answering the most common questions.
