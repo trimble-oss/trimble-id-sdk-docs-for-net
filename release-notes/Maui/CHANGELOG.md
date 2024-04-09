@@ -1,3 +1,9 @@
+# 2.0.0-beta
+
+- Added Windows Platform support
+- Simplified the client configuration of MobileAuthenticator
+- .NET 8 support
+
 # 1.0.1
 
 Bug fixes - Launching the browser for the first time on an Android device.
