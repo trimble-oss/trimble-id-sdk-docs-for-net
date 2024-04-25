@@ -1,3 +1,8 @@
+## 1.1.2 (2024-04-25)
+
+* Trimble.ID
+	- Improvement in error handling and some refactoring for token provider classes
+
 ## 1.1.1 (2024-02-28)
 
 * Trimble.ID
