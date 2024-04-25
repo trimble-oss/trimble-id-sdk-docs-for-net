@@ -1,4 +1,4 @@
-# 2.0.0-beta
+# 2.0.0 (2024-04-25)
 
 - Added Windows Platform support
 - Simplified the client configuration of MobileAuthenticator
