@@ -1,0 +1,22 @@
+﻿<Window x:Class="WPFDesktopSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFDesktopSample"
+        mc:Ignorable="d"
+        Title="WPF Sample Application" Height="350" Width="650">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button x:Name="LoginBtn" Margin = "10" Width = "120" Height = "30" Click="Login_OnClick">Login</Button>
+            <Button x:Name="GetAccessTokenBtn" Margin = "10" Width = "140" Height = "30" Click="GetAccessToken_OnClick">Get Access Token</Button>
+            <Button x:Name="GetUserInfoBtn" Margin = "10" Width = "120" Height = "30" Click="GetUserInfo_OnClick">Get User Info</Button>
+        </StackPanel>
+        <TextBox Name="TextBox" Grid.Row="1" Margin = "10" TextWrapping="Wrap"/>
+    </Grid>
+</Window>
