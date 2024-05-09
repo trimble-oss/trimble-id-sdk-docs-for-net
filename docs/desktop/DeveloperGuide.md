@@ -62,7 +62,7 @@ The SDK uses [Isolated storage](https://learn.microsoft.com/en-us/dotnet/standar
                                         .WithPersistentStorage(new EncryptedStorage(new IsolatedFileStorage(<"filename.config">), Salt));
   ```
 
-> **_NOTE:_** If persistance storage of the SDK is used by the application, tokens are refreshed by the SDK when they expire. Application need not worry about refreshing the tokens on expiry. 
+> **_NOTE:_** Token lifetime and refresh are handled automatically. If the client uses persistent storage, our SDK securely stores tokens in (isolated storage)[https://learn.microsoft.com/en-us/dotnet/standard/io/isolated-storage]. This means that any subsequent application launches will trigger automatic silent login with the stored tokens. This enables users to seamlessly access the application without the need to manually enter their credentials.
 
 ### <a name="login">Example: How to Login</a> ###
 
@@ -90,7 +90,7 @@ The SDK uses [Isolated storage](https://learn.microsoft.com/en-us/dotnet/standar
   ```csharp
   var accessToken = await authenticator.TokenProvider.RetrieveToken();
   ```
-> **_NOTE:_** If persistance storage of the SDK is used by the application, tokens are refreshed by the SDK when they expire. Application need not worry about refreshing tokens on expiry.
+> **_NOTE:_** Token lifetime and refresh are handled by the SDK.
 
 ### <a name="loggedin_state">Example: How to know logged-in state</a> ###
 <b>Summary</b>
