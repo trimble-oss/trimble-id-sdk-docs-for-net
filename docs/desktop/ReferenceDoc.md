@@ -149,6 +149,8 @@ authenticator.Dispose();
 
 Implements IAuthenticator
 
+Token lifetime and refresh are handled by the SDK.
+
 <a name='M-Trimble-ID-Desktop-LocalhostAuthenticator-#ctor-TrimbleCloud-Authentication-IEndpointProvider,System-String,System-String[],System-String-'></a>
 ### #ctor(endpointProvider,consumerKey,scopes,productName) `constructor`
 
