@@ -1,3 +1,11 @@
+## 1.2.0 (2024-06-25)
+
+* Trimble.ID
+	- Silent Auth support using `prompt=none` that allows applications to indicate whether to display the login UI
+	- A new method `RetrieveTokenAsync` introduced to know the token expiry with the access token
+	- TokenRefresh event handler is added to notify the token refresh events
+	- Some bug fixes and improvements
+
 ## 1.1.2 (2024-04-25)
 
 * Trimble.ID
