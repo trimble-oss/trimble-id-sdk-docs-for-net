@@ -154,6 +154,7 @@ authenticator.Dispose();
 Implements IAuthenticator
 
 <a name='M-Trimble-ID-Desktop-LocalhostAuthenticator-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String[],System-String-'></a>
+
 ### #ctor(endpointProvider,consumerKey,scopes,productName) `constructor`
 
 ##### Summary
