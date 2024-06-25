@@ -46,7 +46,7 @@ This endpoint provider is used to provide a fixed set of endpoints.
 ## Usage
 ```C#
 using Trimble.ID;
-var endpointProvider = new FixedEndpointProvider(new Uri("https://authorization.url"), new Uri("https://token.url"), new Uri("https://userinfo.url"));
+IEndpointProvider endpointProvider = new FixedEndpointProvider(new Uri("https://authorization.url"), new Uri("https://token.url"), new Uri("https://userinfo.url"));
 var endpoint = await endpointProvider.RetrieveAuthorizationEndpoint();
 ```
 
@@ -57,7 +57,7 @@ This endpoint provider is used to retrieve the endpoints from a well-known URL e
 ## Usage
 ```C#
 using Trimble.ID;
-var endpointProvider = new OpenIdEndpointProvider(new Uri("https://id.trimble.com/.well-known/openid-configuration"));
+IEndpointProvider endpointProvider = new OpenIdEndpointProvider(new Uri("https://id.trimble.com/.well-known/openid-configuration"));
 var endpoint = await endpointProvider.RetrieveAuthorizationEndpoint();
 ```
 
@@ -68,7 +68,7 @@ This token provider is used to provide a fixed access token.
 ## Usage
 ```C#
 using Trimble.ID;
-var tokenProvider = new FixedTokenProvider('accessToken');
+ITokenProvider tokenProvider = new FixedTokenProvider('accessToken');
 var token = await tokenProvider.RetrieveToken();
 ```
 
@@ -79,7 +79,7 @@ This token provider is used to retrieve an access token using the client credent
 ## Usage
 ```C#
 using Trimble.ID;
-var tokenProvider = new ClientCredentialTokenProvider(endpointProvider, "clientId", "clientSecret").WithScopes(new[] string { "scope" });;
+ITokenProvider tokenProvider = new ClientCredentialTokenProvider(endpointProvider, "clientId", "clientSecret").WithScopes(new[] string { "scope" });;
 var token = await tokenProvider.RetrieveToken();
 ```
 Alternatively, you can utilize the `endpointProvider` by specifying `OpenIdEndpointProvider.Staging` for the staging environment and `OpenIdEndpointProvider.Production` for the production environment, simplifying configuration accordingly.
@@ -124,7 +124,7 @@ This token provider is used to retrieve an access token using the on behalf/ tok
 ## Usage
 ```C#
 using Trimble.ID;
-var tokenProvider = new OnBehalfGrantTokenProvider(endpointProvider, "client_id", "client_secret", "id_token").WithScopes(new[] string { "scope" });
+ITokenProvider tokenProvider = new OnBehalfGrantTokenProvider(endpointProvider, "client_id", "client_secret", "id_token").WithScopes(new[] string { "scope" });
 var token = tokenProvider.RetrieveToken();
 ```
 Trimble.ID.RefreshableTokenProvider
@@ -157,7 +157,7 @@ It is possible to use the Trimble.ID library to retrieve an HttpClient with the 
 ## Usage
 ```C#
 using Trimble.ID;
-var httpClientProvider = new BasicAuthenticationHttpClientProvider("username", "password", new Uri("https://endpoint.base.url"));
+IHttpClientProvider httpClientProvider = new BasicAuthenticationHttpClientProvider("username", "password", new Uri("https://endpoint.base.url"));
 var client = await httpClientProvider.RetrieveClient();
 ```
 
@@ -168,7 +168,7 @@ It is possible to use the Trimble.ID library to retrieve an HttpClient with the 
 ## Usage
 ```C#
 using Trimble.ID;
-var httpClientProvider = new BearerTokenHttpClientProvider(tokenProvider, new Uri("https://endpoint.base.url"));
+IHttpClientProvider httpClientProvider = new BearerTokenHttpClientProvider(tokenProvider, new Uri("https://endpoint.base.url"));
 var client = httpClientProvider.RetrieveClient();
 ```
 
@@ -203,8 +203,8 @@ Provides the validated claimset for a JSON web token.
 ## Usage
 ```C#
 using Trimble.ID;
-var keysetProvider = new OpenIdKeySetProvider(endpointProvider);
-var claimsetProvider = new ValidatedClaimsetProvider(keysetProvider);
+IKeySetProvider keysetProvider = new OpenIdKeySetProvider(endpointProvider);
+IClaimsetProvider claimsetProvider = new ValidatedClaimsetProvider(keysetProvider);
 var claimset = await claimsetProvider.RetrieveClaimset(idToken);
 ```
 
