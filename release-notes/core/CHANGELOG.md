@@ -1,3 +1,8 @@
+## 1.2.1 (2024-07-25)
+
+* Trimble.ID
+	- Reference dependency hierarchy issue fix
+
 ## 1.2.0 (2024-06-25)
 
 * Trimble.ID
