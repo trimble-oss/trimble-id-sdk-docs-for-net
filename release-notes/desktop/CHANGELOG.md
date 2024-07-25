@@ -1,6 +1,6 @@
 ## 1.1.1 (2024-07-25)
 - Reference dependency hierarchy issue fix
-- 
+  
 # 1.1.0 (2024-06-25)
 - Silent Auth support using `prompt=none` that allows applications to indicate whether to display the login UI
 - A new method `RetrieveTokenAsync` introduced to know the token expiry with the access token
