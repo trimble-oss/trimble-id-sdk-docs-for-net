@@ -29,7 +29,7 @@ dotnet add package Trimble.ID.Desktop --version 1.0.0
 
 ### Configure Trimble Identity
 
-Create a new application in the [Trimble Developer Console](https://developer.console.trimble.com/) portal and configure the following settings:
+Create a new application in the [Trimble Developer Console](https://console.trimble.com/) portal and configure the following settings:
 
 To register your application in Trimble Developer Console:
 
