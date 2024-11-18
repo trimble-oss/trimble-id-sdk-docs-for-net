@@ -9,17 +9,13 @@
   - [Width](#P-Trimble-ID-Desktop-BrowserPreferences-Width 'Trimble.ID.Desktop.BrowserPreferences.Width')
   - [X](#P-Trimble-ID-Desktop-BrowserPreferences-X 'Trimble.ID.Desktop.BrowserPreferences.X')
   - [Y](#P-Trimble-ID-Desktop-BrowserPreferences-Y 'Trimble.ID.Desktop.BrowserPreferences.Y')
-- [CustomUrlAuthenticator](#T-Trimble-ID-Desktop-CustomUrlAuthenticator 'Trimble.ID.Desktop.CustomUrlAuthenticator')
-  - [#ctor(tokenProvider,productName)](#M-Trimble-ID-Desktop-CustomUrlAuthenticator-#ctor-Trimble-ID-AuthorizationCodeGrantTokenProvider,System-String- 'Trimble.ID.Desktop.CustomUrlAuthenticator.#ctor(Trimble.ID.AuthorizationCodeGrantTokenProvider,System.String)')
-  - [Login(silent,timeoutInMs)](#M-Trimble-ID-Desktop-CustomUrlAuthenticator-Login-System-Boolean,System-Int32,System-Threading-CancellationToken- 'Trimble.ID.Desktop.CustomUrlAuthenticator.Login(System.Boolean,System.Int32,System.Threading.CancellationToken)')
-  - [WithBrowserPreferences(preferences)](#M-Trimble-ID-Desktop-CustomUrlAuthenticator-WithBrowserPreferences-Trimble-ID-Desktop-BrowserPreferences- 'Trimble.ID.Desktop.CustomUrlAuthenticator.WithBrowserPreferences(Trimble.ID.Desktop.BrowserPreferences)')
 - [LocalhostAuthenticator](#T-Trimble-ID-Desktop-LocalhostAuthenticator 'Trimble.ID.Desktop.LocalhostAuthenticator')
   - [#ctor(endpointProvider,consumerKey,scopes,productName)](#M-Trimble-ID-Desktop-LocalhostAuthenticator-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String[],System-String- 'Trimble.ID.Desktop.LocalhostAuthenticator.#ctor(Trimble.ID.IEndpointProvider,System.String,System.String[],System.String)')
   - [IsLoggedIn](#P-Trimble-ID-Desktop-LocalhostAuthenticator-IsLoggedIn 'Trimble.ID.Desktop.LocalhostAuthenticator.IsLoggedIn')
   - [LegacyTokenProvider](#P-Trimble-ID-Desktop-LocalhostAuthenticator-LegacyTokenProvider 'Trimble.ID.Desktop.LocalhostAuthenticator.LegacyTokenProvider')
   - [TokenProvider](#P-Trimble-ID-Desktop-LocalhostAuthenticator-TokenProvider 'Trimble.ID.Desktop.LocalhostAuthenticator.TokenProvider')
+  - [Dispose()](#M-Trimble-ID-Desktop-LocalhostAuthenticator-Dispose-System-Boolean- 'Trimble.ID.Desktop.LocalhostAuthenticator.Dispose(System.Boolean)')
   - [Dispose()](#M-Trimble-ID-Desktop-LocalhostAuthenticator-Dispose 'Trimble.ID.Desktop.LocalhostAuthenticator.Dispose')
-  - [Dispose(disposing)](#M-Trimble-ID-Desktop-LocalhostAuthenticator-Dispose-System-Boolean- 'Trimble.ID.Desktop.LocalhostAuthenticator.Dispose(System.Boolean)')
   - [GetUserInfo()](#M-Trimble-ID-Desktop-LocalhostAuthenticator-GetUserInfo 'Trimble.ID.Desktop.LocalhostAuthenticator.GetUserInfo')
   - [LoadCachedLogin()](#M-Trimble-ID-Desktop-LocalhostAuthenticator-LoadCachedLogin 'Trimble.ID.Desktop.LocalhostAuthenticator.LoadCachedLogin')
   - [Login(silent,timeoutInMs,cancellationToken)](#M-Trimble-ID-Desktop-LocalhostAuthenticator-Login-System-Boolean,System-Int32,System-Threading-CancellationToken- 'Trimble.ID.Desktop.LocalhostAuthenticator.Login(System.Boolean,System.Int32,System.Threading.CancellationToken)')
@@ -27,6 +23,7 @@
   - [WithBrowserPreferences(preferences)](#M-Trimble-ID-Desktop-LocalhostAuthenticator-WithBrowserPreferences-Trimble-ID-Desktop-BrowserPreferences- 'Trimble.ID.Desktop.LocalhostAuthenticator.WithBrowserPreferences(Trimble.ID.Desktop.BrowserPreferences)')
   - [WithFixedPort(port)](#M-Trimble-ID-Desktop-LocalhostAuthenticator-WithFixedPort-System-Int32- 'Trimble.ID.Desktop.LocalhostAuthenticator.WithFixedPort(System.Int32)')
   - [WithLoopbackAddress(address)](#M-Trimble-ID-Desktop-LocalhostAuthenticator-WithLoopbackAddress-System-String- 'Trimble.ID.Desktop.LocalhostAuthenticator.WithLoopbackAddress(System.String)')
+  - [WithOfflineAccess()](#M-Trimble-ID-Desktop-LocalhostAuthenticator-WithOfflineAccess 'Trimble.ID.Desktop.LocalhostAuthenticator.WithOfflineAccess')
   - [WithPersistentStorage(persistentStorage)](#M-Trimble-ID-Desktop-LocalhostAuthenticator-WithPersistentStorage-Trimble-ID-IPersistantStorage- 'Trimble.ID.Desktop.LocalhostAuthenticator.WithPersistentStorage(Trimble.ID.IPersistantStorage)')
 - [LocalhostListener](#T-Trimble-ID-Desktop-LocalhostListener 'Trimble.ID.Desktop.LocalhostListener')
   - [#ctor(address)](#M-Trimble-ID-Desktop-LocalhostListener-#ctor-System-String- 'Trimble.ID.Desktop.LocalhostListener.#ctor(System.String)')
@@ -41,12 +38,38 @@
   - [RetrieveToken()](#M-Trimble-ID-Desktop-LocalhostAuthenticator-TokenProviderWrapper-RetrieveToken 'Trimble.ID.Desktop.LocalhostAuthenticator.TokenProviderWrapper.RetrieveToken')
   - [RetrieveTokenAsync(cancellationToken)](#M-Trimble-ID-Desktop-LocalhostAuthenticator-TokenProviderWrapper-RetrieveTokenAsync-System-Threading-CancellationToken- 'Trimble.ID.Desktop.LocalhostAuthenticator.TokenProviderWrapper.RetrieveTokenAsync(System.Threading.CancellationToken)')
 
+<a name='T-Trimble-ID-Desktop-Browser'></a>
+## Browser `type`
+
+##### Namespace
+
+Trimble.ID.Desktop
+
+##### Summary
+
+Provides methods to launch a URL in the default browser.
+
+<a name='M-Trimble-ID-Desktop-Browser-Launch-System-Uri,Trimble-ID-Desktop-BrowserPreferences-'></a>
+### Launch() `method`
+
+##### Summary
+
+Launches the default browser with the specified URL.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='T-Trimble-ID-Desktop-BrowserPreferences'></a>
 ## BrowserPreferences `type`
 
 ##### Namespace
 
 Trimble.ID.Desktop
+
+##### Summary
+
+Preferences for browser window
 
 <a name='P-Trimble-ID-Desktop-BrowserPreferences-Height'></a>
 ### Height `property`
@@ -63,64 +86,6 @@ Trimble.ID.Desktop
 <a name='P-Trimble-ID-Desktop-BrowserPreferences-Y'></a>
 ### Y `property`
 
-<a name='T-Trimble-ID-Desktop-CustomUrlAuthenticator'></a>
-## CustomUrlAuthenticator `type`
-
-##### Namespace
-
-Trimble.ID.Desktop
-
-<a name='M-Trimble-ID-Desktop-CustomUrlAuthenticator-#ctor-Trimble-ID-AuthorizationCodeGrantTokenProvider,System-String-'></a>
-### #ctor(tokenProvider,productName) `constructor`
-
-##### Summary
-
-Public constructor for CustomUrlAuthenticator class
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| tokenProvider | [Trimble.ID.AuthorizationCodeGrantTokenProvider](#T-Trimble-ID-AuthorizationCodeGrantTokenProvider 'Trimble.ID.AuthorizationCodeGrantTokenProvider') | An authorization Grant token provider object |
-| productName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The product name of the consuming application (optional). |
-
-<a name='M-Trimble-ID-Desktop-CustomUrlAuthenticator-Login-System-Boolean,System-Int32,System-Threading-CancellationToken-'></a>
-### Login(silent,timeoutInMs) `method`
-
-##### Summary
-
-Log the user in
-
-##### Returns
-
-true if the user was successfully logged in
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| silent | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true if no UI should be shown i.e. prompt=none |
-| timeoutInMs | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Specify the length of time that client waits for a login response when making a login attempt. The default timeout value is 3 minutes. |
-
-##### Exceptions
-
-| Name | Description |
-| ---- | ----------- |
-| [System.TimeoutException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.TimeoutException 'System.TimeoutException') | Login operation has timed out after waiting for specified time. |
-
-<a name='M-Trimble-ID-Desktop-CustomUrlAuthenticator-WithBrowserPreferences-Trimble-ID-Desktop-BrowserPreferences-'></a>
-### WithBrowserPreferences(preferences) `method`
-
-##### Summary
-
-Fluent method to specify browser preferences
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| preferences | [Trimble.ID.Desktop.BrowserPreferences](#T-Trimble-ID-Desktop-BrowserPreferences 'Trimble.ID.Desktop.BrowserPreferences') | The browser preferences |
-
 <a name='T-Trimble-ID-Desktop-LocalhostAuthenticator'></a>
 ## LocalhostAuthenticator `type`
 
@@ -136,10 +101,10 @@ An authenticator that utilizes a localhost callback
 
 ```csharp
 const string CONFIGURATION_ENDPOINT = "https://id.trimble.com/.well-known/openid-configuration";
-const string CONSUMER_KEY = "APPLICATION_CONSUMER_KEY";
+const string CLIENT_ID = "APPLICATION_CLIENT_ID";
 var string SCOPES = new [] { "CSharpSDKTesting" };
 IEndpointProvider endpointProvider = new OpenIdEndpointProvider(new Uri(CONFIGURATION_URL, UriKind.Absolute));
-IAuthenticator authenticator = new LocalhostAuthenticator(endpointProvider, CONSUMER_KEY, SCOPES);
+IAuthenticator authenticator = new LocalhostAuthenticator(endpointProvider, CLIENT_ID, SCOPES);
 if (await authenticator.Login())
 {
     var userInfo = await authenticator.GetUserInfo();
@@ -154,7 +119,6 @@ authenticator.Dispose();
 Implements IAuthenticator
 
 <a name='M-Trimble-ID-Desktop-LocalhostAuthenticator-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String[],System-String-'></a>
-
 ### #ctor(endpointProvider,consumerKey,scopes,productName) `constructor`
 
 ##### Summary
@@ -199,29 +163,27 @@ Get the token provider for this authenticator
 
 This token provider can be used with other SDK components
 
-<a name='M-Trimble-ID-Desktop-LocalhostAuthenticator-Dispose'></a>
+<a name='M-Trimble-ID-Desktop-LocalhostAuthenticator-Dispose-System-Boolean-'></a>
 ### Dispose() `method`
 
 ##### Summary
 
-Dispose method for LocalhostAuthenticator class
+Finalizer for the authenticator
 
 ##### Parameters
 
 This method has no parameters.
 
-<a name='M-Trimble-ID-Desktop-LocalhostAuthenticator-Dispose-System-Boolean-'></a>
-### Dispose(disposing) `method`
+<a name='M-Trimble-ID-Desktop-LocalhostAuthenticator-Dispose'></a>
+### Dispose() `method`
 
 ##### Summary
 
-Dispose of instance
+Dispose the authenticator
 
 ##### Parameters
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | True if disposing |
+This method has no parameters.
 
 <a name='M-Trimble-ID-Desktop-LocalhostAuthenticator-GetUserInfo'></a>
 ### GetUserInfo() `method`
@@ -329,13 +291,13 @@ Fluent method to specify browser preferences
 
 ##### Summary
 
-Fluent method to specify a fixed port
+Fluent method to specify an alternative port
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| port | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The fixed port to use for the localhost listener |
+| port | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The alternative port to use for the localhost listener |
 
 <a name='M-Trimble-ID-Desktop-LocalhostAuthenticator-WithLoopbackAddress-System-String-'></a>
 ### WithLoopbackAddress(address) `method`
@@ -350,12 +312,32 @@ Fluent method to specify an alternative host
 | ---- | ---- | ----------- |
 | address | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The alternative host to use for the localhost listener |
 
+<a name='M-Trimble-ID-Desktop-LocalhostAuthenticator-WithOfflineAccess'></a>
+### WithOfflineAccess() `method`
+
+##### Summary
+
+Fluent method to enable offline access.
+
+##### Returns
+
+The authenticator configured for offline access.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+Offline access allows the application user to remain offline by using the token cache, which ignores token expiration.
+Note that even in offline mode, at least one initial sign-in is required to initialize the token from the cache.
+
 <a name='M-Trimble-ID-Desktop-LocalhostAuthenticator-WithPersistentStorage-Trimble-ID-IPersistantStorage-'></a>
 ### WithPersistentStorage(persistentStorage) `method`
 
 ##### Summary
 
-Fluent method to specify persistent storage option. This initializes to load cached login first if present
+Fluent method to specify persistent storage option.
 
 ##### Parameters
 
