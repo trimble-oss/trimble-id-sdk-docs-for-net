@@ -64,6 +64,16 @@ The SDK uses [Isolated storage](https://learn.microsoft.com/en-us/dotnet/standar
 
 > **_NOTE:_** Token lifetime and refresh are handled automatically. If the client uses persistent storage, our SDK securely stores tokens in [isolated storage](https://learn.microsoft.com/en-us/dotnet/standard/io/isolated-storage). This means that any subsequent application launches will trigger automatic silent login with the stored tokens. This enables users to seamlessly access the application without the need to manually enter their credentials.
 
+### <a name="offline_access">Offline access</a> ###
+
+Offline access allows the application user to remain offline by using the token cache, which ignores token expiration. Note that even in offline mode, at least one initial sign-in is required to initialize the token from the cache. To enable offline access, see the code below
+
+```csharp
+IAuthenticator authenticator = new LocalhostAuthenticator(OpenIdEndpointProvider.Production, CLIENT_ID, SCOPES)
+                                        .WithPersistentStorage(new EncryptedStorage(new IsolatedFileStorage(<"filename.config">), Salt))
+                                        .WithOfflineAccess();
+```
+
 ### <a name="login">Example: How to Login</a> ###
 
 <b>Summary</b>
