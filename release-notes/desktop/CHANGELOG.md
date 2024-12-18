@@ -1,3 +1,12 @@
+## 1.2.0-beta.20241217 (2024-12-18)
+- New Features
+    - Token Storage Improvement: Allowed storage of all types of tokens including access_token, id_token, and token expiry information.
+    - Offline Support: Added offline support to fetch user information and tokens when there is no internet connection.
+- Improvements
+    - Code Refactoring and Coverage: Conducted extensive code refactoring for improved code quality and maintainability, and increased code coverage with additional unit tests.
+- Bug Fixes
+    - Addressed multiple bugs to enhance overall stability and performance.
+
 ## 1.1.1 (2024-07-25)
 - Reference dependency hierarchy issue fix
   
