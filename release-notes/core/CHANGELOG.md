@@ -1,3 +1,8 @@
+## 1.3.0-beta.20241217 (2024-12-18)
+- New Features
+    - Token Storage Improvement: Allowed storage of all types of tokens including access_token, id_token, and token expiry information.
+    - Offline Support: Added offline support to fetch user information and tokens when there is no internet connection.
+
 ## 1.2.1 (2024-07-25)
 
 * Trimble.ID
