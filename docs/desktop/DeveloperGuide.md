@@ -77,6 +77,7 @@ IAuthenticator authenticator = new LocalhostAuthenticator(OpenIdEndpointProvider
                                         .WithPersistentStorage(new EncryptedStorage(new IsolatedFileStorage(<"filename.config">), Salt))
                                         .WithOfflineAccess();
 ```
+Please refer [here](#user_info) to fetch user information
 
 ### <a name="login">Example: How to Login</a> ###
 
@@ -89,7 +90,7 @@ IAuthenticator authenticator = new LocalhostAuthenticator(OpenIdEndpointProvider
   true if the user was successfully logged in
 
   ```csharp
-  var isLoggedIn = authenticator.Login(); 
+  var isLoggedIn = await authenticator.Login(); 
   ```
 ### <a name="access_token">Example: How to get an access token</a> ###
 
