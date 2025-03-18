@@ -1,3 +1,7 @@
+## 1.1.2 (2025-02-13)
+- Bug Fix:
+    - Fixed the `GetUserInfo` method to prevent exceptions when some claims are missing.
+
 ## 1.2.0-beta.20241217 (2024-12-18)
 - New Features
     - Token Storage Improvement: Allowed storage of all types of tokens including access_token, id_token, and token expiry information.
