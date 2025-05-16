@@ -3,6 +3,8 @@
 
 ## Contents
 
+- [Browser](#T-Trimble-ID-Desktop-Browser 'Trimble.ID.Desktop.Browser')
+  - [Launch()](#M-Trimble-ID-Desktop-Browser-Launch-System-Uri,Trimble-ID-Desktop-BrowserPreferences- 'Trimble.ID.Desktop.Browser.Launch(System.Uri,Trimble.ID.Desktop.BrowserPreferences)')
 - [BrowserPreferences](#T-Trimble-ID-Desktop-BrowserPreferences 'Trimble.ID.Desktop.BrowserPreferences')
   - [Height](#P-Trimble-ID-Desktop-BrowserPreferences-Height 'Trimble.ID.Desktop.BrowserPreferences.Height')
   - [NewWindow](#P-Trimble-ID-Desktop-BrowserPreferences-NewWindow 'Trimble.ID.Desktop.BrowserPreferences.NewWindow')
@@ -329,7 +331,11 @@ This method has no parameters.
 
 ##### Remarks
 
+
+This allows the application to access user's data and token even when offline.
+
 Offline access allows the application user to remain offline by using the token cache, which ignores token expiration.
+
 Note that even in offline mode, at least one initial sign-in is required to initialize the token from the cache.
 
 <a name='M-Trimble-ID-Desktop-LocalhostAuthenticator-WithPersistentStorage-Trimble-ID-IPersistantStorage-'></a>
@@ -351,6 +357,10 @@ Fluent method to specify persistent storage option.
 ##### Namespace
 
 Trimble.ID.Desktop
+
+##### Summary
+
+A class that listens for HTTP requests on the localhost.
 
 <a name='M-Trimble-ID-Desktop-LocalhostListener-#ctor-System-String-'></a>
 ### #ctor(address) `constructor`
@@ -440,6 +450,14 @@ The access token.
 
 This method has no parameters.
 
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown when the user is not logged in. |
+| [Trimble.ID.TokenRefreshException](#T-Trimble-ID-TokenRefreshException 'Trimble.ID.TokenRefreshException') | Thrown when the token failed to refresh. |
+
 <a name='M-Trimble-ID-Desktop-LocalhostAuthenticator-TokenProviderWrapper-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
 ### RetrieveTokenAsync(cancellationToken) `method`
 
@@ -456,3 +474,11 @@ An [AccessToken](#T-Trimble-ID-AccessToken 'Trimble.ID.AccessToken') which can b
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') controlling the request lifetime. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown when the user is not logged in. |
+| [Trimble.ID.TokenRefreshException](#T-Trimble-ID-TokenRefreshException 'Trimble.ID.TokenRefreshException') | Thrown when the token failed to refresh. |
+

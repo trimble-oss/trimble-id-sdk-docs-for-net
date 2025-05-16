@@ -1,3 +1,11 @@
+## 1.2.0 (2025-05-15)
+- Cross-process synchronization using lock file to support multi instance simultaneously retrieving the tokens
+  - Token storage improvements
+  - Improved error handling and retry mechanism in case of transient errors
+  - Offline scenerio support to retrieve the info from storage without an active network connections
+  - Bug fixes and code smells addressed
+  - Strong naming added
+
 ## 1.1.2 (2025-02-13)
 - Bug Fix:
     - Fixed the `GetUserInfo` method to prevent exceptions when some claims are missing.
@@ -19,6 +27,7 @@
 - A new method `RetrieveTokenAsync` introduced to know the token expiry with the access token
 - TokenRefresh event handler is added to notify the token refresh events
 - Some bug fixes and improvements
+
 
 # 1.0.1 (2024-02-28)
 - Addressed backward compatibility issue

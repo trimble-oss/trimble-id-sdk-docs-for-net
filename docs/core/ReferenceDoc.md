@@ -10,21 +10,25 @@
   - [Equals()](#M-Trimble-ID-AccessToken-Equals-System-Object- 'Trimble.ID.AccessToken.Equals(System.Object)')
   - [GetHashCode()](#M-Trimble-ID-AccessToken-GetHashCode 'Trimble.ID.AccessToken.GetHashCode')
 - [AuthorizationCodeGrantTokenProvider](#T-Trimble-ID-AuthorizationCodeGrantTokenProvider 'Trimble.ID.AuthorizationCodeGrantTokenProvider')
-  - [#ctor(endpointProvider,consumerKey,redirectUrl,productName)](#M-Trimble-ID-AuthorizationCodeGrantTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String,System-String- 'Trimble.ID.AuthorizationCodeGrantTokenProvider.#ctor(Trimble.ID.IEndpointProvider,System.String,System.String,System.String)')
-  - [#ctor(endpointProvider,consumerKey,redirectUri,productName)](#M-Trimble-ID-AuthorizationCodeGrantTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-Uri,System-String- 'Trimble.ID.AuthorizationCodeGrantTokenProvider.#ctor(Trimble.ID.IEndpointProvider,System.String,System.Uri,System.String)')
+  - [#ctor(endpointProvider,clientId,redirectUrl,productName)](#M-Trimble-ID-AuthorizationCodeGrantTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String,System-String- 'Trimble.ID.AuthorizationCodeGrantTokenProvider.#ctor(Trimble.ID.IEndpointProvider,System.String,System.String,System.String)')
+  - [#ctor(endpointProvider,clientId,redirectUri,productName)](#M-Trimble-ID-AuthorizationCodeGrantTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-Uri,System-String- 'Trimble.ID.AuthorizationCodeGrantTokenProvider.#ctor(Trimble.ID.IEndpointProvider,System.String,System.Uri,System.String)')
   - [State](#P-Trimble-ID-AuthorizationCodeGrantTokenProvider-State 'Trimble.ID.AuthorizationCodeGrantTokenProvider.State')
   - [GetOAuthLogoutRedirect(state)](#M-Trimble-ID-AuthorizationCodeGrantTokenProvider-GetOAuthLogoutRedirect-System-String- 'Trimble.ID.AuthorizationCodeGrantTokenProvider.GetOAuthLogoutRedirect(System.String)')
-  - [GetOAuthRedirect(state)](#M-Trimble-ID-AuthorizationCodeGrantTokenProvider-GetOAuthRedirect-System-String- 'Trimble.ID.AuthorizationCodeGrantTokenProvider.GetOAuthRedirect(System.String)')
+  - [GetOAuthRedirect(state,prompt)](#M-Trimble-ID-AuthorizationCodeGrantTokenProvider-GetOAuthRedirect-System-String,System-Boolean- 'Trimble.ID.AuthorizationCodeGrantTokenProvider.GetOAuthRedirect(System.String,System.Boolean)')
   - [ValidateCode(code)](#M-Trimble-ID-AuthorizationCodeGrantTokenProvider-ValidateCode-System-String- 'Trimble.ID.AuthorizationCodeGrantTokenProvider.ValidateCode(System.String)')
   - [ValidateQuery(query)](#M-Trimble-ID-AuthorizationCodeGrantTokenProvider-ValidateQuery-System-String- 'Trimble.ID.AuthorizationCodeGrantTokenProvider.ValidateQuery(System.String)')
   - [WithIdentityProvider(identityProvider)](#M-Trimble-ID-AuthorizationCodeGrantTokenProvider-WithIdentityProvider-System-String- 'Trimble.ID.AuthorizationCodeGrantTokenProvider.WithIdentityProvider(System.String)')
   - [WithLogoutRedirect(logoutRedirectUrl)](#M-Trimble-ID-AuthorizationCodeGrantTokenProvider-WithLogoutRedirect-System-String- 'Trimble.ID.AuthorizationCodeGrantTokenProvider.WithLogoutRedirect(System.String)')
   - [WithLogoutRedirect(logoutRedirectUri)](#M-Trimble-ID-AuthorizationCodeGrantTokenProvider-WithLogoutRedirect-System-Uri- 'Trimble.ID.AuthorizationCodeGrantTokenProvider.WithLogoutRedirect(System.Uri)')
   - [WithScopes(scopes)](#M-Trimble-ID-AuthorizationCodeGrantTokenProvider-WithScopes-System-Collections-Generic-IEnumerable{System-String}- 'Trimble.ID.AuthorizationCodeGrantTokenProvider.WithScopes(System.Collections.Generic.IEnumerable{System.String})')
+- [AuthorizationFailedException](#T-Trimble-ID-AuthorizationFailedException 'Trimble.ID.AuthorizationFailedException')
+  - [#ctor(message)](#M-Trimble-ID-AuthorizationFailedException-#ctor-System-String- 'Trimble.ID.AuthorizationFailedException.#ctor(System.String)')
+  - [#ctor(message,innerException)](#M-Trimble-ID-AuthorizationFailedException-#ctor-System-String,System-Exception- 'Trimble.ID.AuthorizationFailedException.#ctor(System.String,System.Exception)')
 - [BearerTokenHttpClientProvider](#T-Trimble-ID-BearerTokenHttpClientProvider 'Trimble.ID.BearerTokenHttpClientProvider')
   - [#ctor(tokenProvider,baseAddress,productName)](#M-Trimble-ID-BearerTokenHttpClientProvider-#ctor-Trimble-ID-ITokenProvider,System-Uri,System-String- 'Trimble.ID.BearerTokenHttpClientProvider.#ctor(Trimble.ID.ITokenProvider,System.Uri,System.String)')
-  - [Logger](#F-Trimble-ID-BearerTokenHttpClientProvider-Logger 'Trimble.ID.BearerTokenHttpClientProvider.Logger')
   - [ClientId](#P-Trimble-ID-BearerTokenHttpClientProvider-ClientId 'Trimble.ID.BearerTokenHttpClientProvider.ClientId')
+  - [Logger](#P-Trimble-ID-BearerTokenHttpClientProvider-Logger 'Trimble.ID.BearerTokenHttpClientProvider.Logger')
+  - [GetClientIdAsync()](#M-Trimble-ID-BearerTokenHttpClientProvider-GetClientIdAsync 'Trimble.ID.BearerTokenHttpClientProvider.GetClientIdAsync')
   - [RetrieveClient()](#M-Trimble-ID-BearerTokenHttpClientProvider-RetrieveClient 'Trimble.ID.BearerTokenHttpClientProvider.RetrieveClient')
   - [SetHttpMessageHandler(handler)](#M-Trimble-ID-BearerTokenHttpClientProvider-SetHttpMessageHandler-System-Net-Http-HttpMessageHandler- 'Trimble.ID.BearerTokenHttpClientProvider.SetHttpMessageHandler(System.Net.Http.HttpMessageHandler)')
 - [ClientCredentialTokenProvider](#T-Trimble-ID-ClientCredentialTokenProvider 'Trimble.ID.ClientCredentialTokenProvider')
@@ -64,6 +68,15 @@
   - [GetItem()](#M-Trimble-ID-EncryptedStorage-GetItem-System-String- 'Trimble.ID.EncryptedStorage.GetItem(System.String)')
   - [RemoveItem()](#M-Trimble-ID-EncryptedStorage-RemoveItem-System-String- 'Trimble.ID.EncryptedStorage.RemoveItem(System.String)')
   - [SetItem()](#M-Trimble-ID-EncryptedStorage-SetItem-System-String,System-String- 'Trimble.ID.EncryptedStorage.SetItem(System.String,System.String)')
+- [ErrorMessage](#T-Trimble-ID-ErrorMessage 'Trimble.ID.ErrorMessage')
+  - [FailedToGetToken](#F-Trimble-ID-ErrorMessage-FailedToGetToken 'Trimble.ID.ErrorMessage.FailedToGetToken')
+  - [FailedToRefreshToken](#F-Trimble-ID-ErrorMessage-FailedToRefreshToken 'Trimble.ID.ErrorMessage.FailedToRefreshToken')
+  - [FailedToReturnOAuthRedirect](#F-Trimble-ID-ErrorMessage-FailedToReturnOAuthRedirect 'Trimble.ID.ErrorMessage.FailedToReturnOAuthRedirect')
+  - [FailedToValidateOAuthCode](#F-Trimble-ID-ErrorMessage-FailedToValidateOAuthCode 'Trimble.ID.ErrorMessage.FailedToValidateOAuthCode')
+  - [IdTokenIsRequired](#F-Trimble-ID-ErrorMessage-IdTokenIsRequired 'Trimble.ID.ErrorMessage.IdTokenIsRequired')
+  - [NoKeysetEndpointProvider](#F-Trimble-ID-ErrorMessage-NoKeysetEndpointProvider 'Trimble.ID.ErrorMessage.NoKeysetEndpointProvider')
+  - [RefreshTokenIsNullOrEmpty](#F-Trimble-ID-ErrorMessage-RefreshTokenIsNullOrEmpty 'Trimble.ID.ErrorMessage.RefreshTokenIsNullOrEmpty')
+  - [TokenRefreshFailed](#F-Trimble-ID-ErrorMessage-TokenRefreshFailed 'Trimble.ID.ErrorMessage.TokenRefreshFailed')
 - [FixedEndpointProvider](#T-Trimble-ID-FixedEndpointProvider 'Trimble.ID.FixedEndpointProvider')
   - [#ctor(productName)](#M-Trimble-ID-FixedEndpointProvider-#ctor-System-String- 'Trimble.ID.FixedEndpointProvider.#ctor(System.String)')
   - [#ctor()](#M-Trimble-ID-FixedEndpointProvider-#ctor-Trimble-ID-FixedEndpointProvider- 'Trimble.ID.FixedEndpointProvider.#ctor(Trimble.ID.FixedEndpointProvider)')
@@ -150,18 +163,18 @@
   - [RetrieveKeySet()](#M-Trimble-ID-OpenIdKeySetProvider-RetrieveKeySet 'Trimble.ID.OpenIdKeySetProvider.RetrieveKeySet')
 - [RefreshableTokenProvider](#T-Trimble-ID-RefreshableTokenProvider 'Trimble.ID.RefreshableTokenProvider')
   - [#ctor(endpointProvider,consumerKey,productName)](#M-Trimble-ID-RefreshableTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String- 'Trimble.ID.RefreshableTokenProvider.#ctor(Trimble.ID.IEndpointProvider,System.String,System.String)')
-  - [#ctor(endpointProvider,consumerKey,consumerSecret,accessToken,tokenExpiry,idToken,refreshToken)](#M-Trimble-ID-RefreshableTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String,System-String,System-DateTime,System-String,System-String- 'Trimble.ID.RefreshableTokenProvider.#ctor(Trimble.ID.IEndpointProvider,System.String,System.String,System.String,System.DateTime,System.String,System.String)')
 - [RefreshableTokenProvider\`1](#T-Trimble-ID-RefreshableTokenProvider`1 'Trimble.ID.RefreshableTokenProvider`1')
   - [#ctor(endpointProvider,consumerKey,productName)](#M-Trimble-ID-RefreshableTokenProvider`1-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String- 'Trimble.ID.RefreshableTokenProvider`1.#ctor(Trimble.ID.IEndpointProvider,System.String,System.String)')
   - [#ctor(endpointProvider,consumerKey,consumerSecret,accessToken,tokenExpiry,idToken,refreshToken)](#M-Trimble-ID-RefreshableTokenProvider`1-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String,System-String,System-DateTime,System-String,System-String- 'Trimble.ID.RefreshableTokenProvider`1.#ctor(Trimble.ID.IEndpointProvider,System.String,System.String,System.String,System.DateTime,System.String,System.String)')
-  - [_codeVerifier](#F-Trimble-ID-RefreshableTokenProvider`1-_codeVerifier 'Trimble.ID.RefreshableTokenProvider`1._codeVerifier')
-  - [_consumerKey](#F-Trimble-ID-RefreshableTokenProvider`1-_consumerKey 'Trimble.ID.RefreshableTokenProvider`1._consumerKey')
-  - [_consumerSecret](#F-Trimble-ID-RefreshableTokenProvider`1-_consumerSecret 'Trimble.ID.RefreshableTokenProvider`1._consumerSecret')
+  - [_clientId](#F-Trimble-ID-RefreshableTokenProvider`1-_clientId 'Trimble.ID.RefreshableTokenProvider`1._clientId')
+  - [_clientSecret](#F-Trimble-ID-RefreshableTokenProvider`1-_clientSecret 'Trimble.ID.RefreshableTokenProvider`1._clientSecret')
   - [_endpointProvider](#F-Trimble-ID-RefreshableTokenProvider`1-_endpointProvider 'Trimble.ID.RefreshableTokenProvider`1._endpointProvider')
-  - [_idToken](#F-Trimble-ID-RefreshableTokenProvider`1-_idToken 'Trimble.ID.RefreshableTokenProvider`1._idToken')
+  - [_gaParameters](#F-Trimble-ID-RefreshableTokenProvider`1-_gaParameters 'Trimble.ID.RefreshableTokenProvider`1._gaParameters')
   - [_messageHandler](#F-Trimble-ID-RefreshableTokenProvider`1-_messageHandler 'Trimble.ID.RefreshableTokenProvider`1._messageHandler')
-  - [_timeProvider](#F-Trimble-ID-RefreshableTokenProvider`1-_timeProvider 'Trimble.ID.RefreshableTokenProvider`1._timeProvider')
+  - [CheckIsOnline()](#M-Trimble-ID-RefreshableTokenProvider`1-CheckIsOnline 'Trimble.ID.RefreshableTokenProvider`1.CheckIsOnline')
+  - [ConvertToUrlSafeBase64String()](#M-Trimble-ID-RefreshableTokenProvider`1-ConvertToUrlSafeBase64String-System-Byte[]- 'Trimble.ID.RefreshableTokenProvider`1.ConvertToUrlSafeBase64String(System.Byte[])')
   - [GenerateCodeVerifier()](#M-Trimble-ID-RefreshableTokenProvider`1-GenerateCodeVerifier 'Trimble.ID.RefreshableTokenProvider`1.GenerateCodeVerifier')
+  - [GetSilentTokenAsync(cancellationToken)](#M-Trimble-ID-RefreshableTokenProvider`1-GetSilentTokenAsync-System-Threading-CancellationToken- 'Trimble.ID.RefreshableTokenProvider`1.GetSilentTokenAsync(System.Threading.CancellationToken)')
   - [RetrieveCodeVerifier()](#M-Trimble-ID-RefreshableTokenProvider`1-RetrieveCodeVerifier 'Trimble.ID.RefreshableTokenProvider`1.RetrieveCodeVerifier')
   - [RetrieveIdToken()](#M-Trimble-ID-RefreshableTokenProvider`1-RetrieveIdToken 'Trimble.ID.RefreshableTokenProvider`1.RetrieveIdToken')
   - [RetrieveRefreshToken()](#M-Trimble-ID-RefreshableTokenProvider`1-RetrieveRefreshToken 'Trimble.ID.RefreshableTokenProvider`1.RetrieveRefreshToken')
@@ -169,20 +182,19 @@
   - [RetrieveTokenAsync()](#M-Trimble-ID-RefreshableTokenProvider`1-RetrieveTokenAsync-System-Threading-CancellationToken- 'Trimble.ID.RefreshableTokenProvider`1.RetrieveTokenAsync(System.Threading.CancellationToken)')
   - [RevokeRefreshToken()](#M-Trimble-ID-RefreshableTokenProvider`1-RevokeRefreshToken 'Trimble.ID.RefreshableTokenProvider`1.RevokeRefreshToken')
   - [WithAccessToken(accessToken,tokenExpiry)](#M-Trimble-ID-RefreshableTokenProvider`1-WithAccessToken-System-String,System-DateTime- 'Trimble.ID.RefreshableTokenProvider`1.WithAccessToken(System.String,System.DateTime)')
-  - [WithConsumerSecret(consumerSecret)](#M-Trimble-ID-RefreshableTokenProvider`1-WithConsumerSecret-System-String- 'Trimble.ID.RefreshableTokenProvider`1.WithConsumerSecret(System.String)')
+  - [WithConsumerSecret(clientSecret)](#M-Trimble-ID-RefreshableTokenProvider`1-WithConsumerSecret-System-String- 'Trimble.ID.RefreshableTokenProvider`1.WithConsumerSecret(System.String)')
   - [WithIdToken(idToken)](#M-Trimble-ID-RefreshableTokenProvider`1-WithIdToken-System-String- 'Trimble.ID.RefreshableTokenProvider`1.WithIdToken(System.String)')
+  - [WithOfflineAccess()](#M-Trimble-ID-RefreshableTokenProvider`1-WithOfflineAccess 'Trimble.ID.RefreshableTokenProvider`1.WithOfflineAccess')
   - [WithPersistentStorage(persistentStorage)](#M-Trimble-ID-RefreshableTokenProvider`1-WithPersistentStorage-Trimble-ID-IPersistantStorage- 'Trimble.ID.RefreshableTokenProvider`1.WithPersistentStorage(Trimble.ID.IPersistantStorage)')
   - [WithProofKeyForCodeExchange(codeVerifier)](#M-Trimble-ID-RefreshableTokenProvider`1-WithProofKeyForCodeExchange-System-String- 'Trimble.ID.RefreshableTokenProvider`1.WithProofKeyForCodeExchange(System.String)')
   - [WithRefreshToken(refreshToken)](#M-Trimble-ID-RefreshableTokenProvider`1-WithRefreshToken-System-String- 'Trimble.ID.RefreshableTokenProvider`1.WithRefreshToken(System.String)')
+  - [WithRetryConfiguration(maxRetries,retryDelayInSeconds)](#M-Trimble-ID-RefreshableTokenProvider`1-WithRetryConfiguration-System-Int32,System-Int32- 'Trimble.ID.RefreshableTokenProvider`1.WithRetryConfiguration(System.Int32,System.Int32)')
   - [_GenerateCodeChallenge()](#M-Trimble-ID-RefreshableTokenProvider`1-_GenerateCodeChallenge-System-String- 'Trimble.ID.RefreshableTokenProvider`1._GenerateCodeChallenge(System.String)')
-- [SelfSignedTokenProvider](#T-Trimble-ID-SelfSignedTokenProvider 'Trimble.ID.SelfSignedTokenProvider')
-  - [#ctor(privateKey,payload)](#M-Trimble-ID-SelfSignedTokenProvider-#ctor-System-String,Newtonsoft-Json-Linq-JObject- 'Trimble.ID.SelfSignedTokenProvider.#ctor(System.String,Newtonsoft.Json.Linq.JObject)')
-  - [RetrieveToken()](#M-Trimble-ID-SelfSignedTokenProvider-RetrieveToken 'Trimble.ID.SelfSignedTokenProvider.RetrieveToken')
-  - [RetrieveTokenAsync()](#M-Trimble-ID-SelfSignedTokenProvider-RetrieveTokenAsync-System-Threading-CancellationToken- 'Trimble.ID.SelfSignedTokenProvider.RetrieveTokenAsync(System.Threading.CancellationToken)')
-- [TokenHandler](#T-Trimble-ID-TokenHandler 'Trimble.ID.TokenHandler')
-  - [#ctor(tokenProvider)](#M-Trimble-ID-TokenHandler-#ctor-Trimble-ID-ITokenProvider- 'Trimble.ID.TokenHandler.#ctor(Trimble.ID.ITokenProvider)')
-  - [_tokenProvider](#F-Trimble-ID-TokenHandler-_tokenProvider 'Trimble.ID.TokenHandler._tokenProvider')
-  - [SendAsync(request,cancellationToken)](#M-Trimble-ID-TokenHandler-SendAsync-System-Net-Http-HttpRequestMessage,System-Threading-CancellationToken- 'Trimble.ID.TokenHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)')
+
+- [TokenRefreshException](#T-Trimble-ID-TokenRefreshException 'Trimble.ID.TokenRefreshException')
+  - [#ctor(message)](#M-Trimble-ID-TokenRefreshException-#ctor-System-String- 'Trimble.ID.TokenRefreshException.#ctor(System.String)')
+  - [#ctor(message,innerException)](#M-Trimble-ID-TokenRefreshException-#ctor-System-String,System-Exception- 'Trimble.ID.TokenRefreshException.#ctor(System.String,System.Exception)')
+
 - [TokenRefreshedEventArgs](#T-TokenRefreshedEventArgs 'TokenRefreshedEventArgs')
   - [#ctor(accessToken,expiresIn)](#M-TokenRefreshedEventArgs-#ctor-System-String,System-Int64- 'TokenRefreshedEventArgs.#ctor(System.String,System.Int64)')
   - [AccessToken](#P-TokenRefreshedEventArgs-AccessToken 'TokenRefreshedEventArgs.AccessToken')
@@ -261,7 +273,9 @@ This method has no parameters.
 
 This method has no parameters.
 
+
 <a name='T-Trimble-ID-AuthorizationCodeGrantTokenProvider'></a>
+
 ## AuthorizationCodeGrantTokenProvider `type`
 
 ##### Namespace
@@ -292,7 +306,7 @@ var token = await tokenProvider.RetrieveToken();
 Implements ITokenProvider
 
 <a name='M-Trimble-ID-AuthorizationCodeGrantTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String,System-String-'></a>
-### #ctor(endpointProvider,consumerKey,redirectUrl,productName) `constructor`
+### #ctor(endpointProvider,clientId,redirectUrl,productName) `constructor`
 
 ##### Summary
 
@@ -303,12 +317,12 @@ Public constructor for AuthorizationCodeGrantTokenProvider class
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | endpointProvider | [Trimble.ID.IEndpointProvider](#T-Trimble-ID-IEndpointProvider 'Trimble.ID.IEndpointProvider') | An endpoint provider that provides the URL for the Trimble Identity authorization and token endpoints |
-| consumerKey | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The consumer key for the calling application |
+| clientId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The client Id for the calling application |
 | redirectUrl | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The URL to which Trimble Identity should redirect after successfully authenticating a user |
 | productName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The product name of the consuming application (Optional). |
 
 <a name='M-Trimble-ID-AuthorizationCodeGrantTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-Uri,System-String-'></a>
-### #ctor(endpointProvider,consumerKey,redirectUri,productName) `constructor`
+### #ctor(endpointProvider,clientId,redirectUri,productName) `constructor`
 
 ##### Summary
 
@@ -319,7 +333,7 @@ Public constructor for AuthorizationCodeGrantTokenProvider class
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | endpointProvider | [Trimble.ID.IEndpointProvider](#T-Trimble-ID-IEndpointProvider 'Trimble.ID.IEndpointProvider') | An endpoint provider that provides the URL for the Trimble Identity authorization and token endpoints |
-| consumerKey | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The consumer key for the calling application |
+| clientId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The client Id for the calling application |
 | redirectUri | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The URL to which Trimble Identity should redirect after successfully authenticating a user |
 | productName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The product name of the consuming application (Optional). |
 
@@ -351,10 +365,10 @@ A Task that resolves to the value of the redirect URL on completion
 
 | Name | Description |
 | ---- | ----------- |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when an ID token is not available |
+| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown when an ID token is not available |
 
-<a name='M-Trimble-ID-AuthorizationCodeGrantTokenProvider-GetOAuthRedirect-System-String-'></a>
-### GetOAuthRedirect(state) `method`
+<a name='M-Trimble-ID-AuthorizationCodeGrantTokenProvider-GetOAuthRedirect-System-String,System-Boolean-'></a>
+### GetOAuthRedirect(state,prompt) `method`
 
 ##### Summary
 
@@ -369,12 +383,13 @@ An awaitable Task that resolves to the redirect URL
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | state | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An optional state parameter that will be passed back to the caller via the redirect URL |
+| prompt | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | This parameter is optional and determines whether to display the login UI. The default value is True. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when an authorization endpoint is not provided by the endpoint provider |
+| [Trimble.ID.AuthorizationFailedException](#T-Trimble-ID-AuthorizationFailedException 'Trimble.ID.AuthorizationFailedException') | Thrown when an authorization endpoint is not provided by the endpoint provider |
 
 <a name='M-Trimble-ID-AuthorizationCodeGrantTokenProvider-ValidateCode-System-String-'></a>
 ### ValidateCode(code) `method`
@@ -397,8 +412,7 @@ True if the code is valid
 
 | Name | Description |
 | ---- | ----------- |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a token endpoint is not provided by the endpoint provider |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the token endpoint fails |
+| [Trimble.ID.AuthorizationFailedException](#T-Trimble-ID-AuthorizationFailedException 'Trimble.ID.AuthorizationFailedException') | Thrown when failed to validate the given auth code |
 
 <a name='M-Trimble-ID-AuthorizationCodeGrantTokenProvider-ValidateQuery-System-String-'></a>
 ### ValidateQuery(query) `method`
@@ -421,8 +435,7 @@ True if the query string is valid
 
 | Name | Description |
 | ---- | ----------- |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a token endpoint is not provided by the endpoint provider |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the token endpoint fails |
+| [Trimble.ID.AuthorizationFailedException](#T-Trimble-ID-AuthorizationFailedException 'Trimble.ID.AuthorizationFailedException') | Thrown when failed to validate the given auth code |
 
 <a name='M-Trimble-ID-AuthorizationCodeGrantTokenProvider-WithIdentityProvider-System-String-'></a>
 ### WithIdentityProvider(identityProvider) `method`
@@ -484,6 +497,44 @@ Fluent extension for adding scopes
 | ---- | ---- | ----------- |
 | scopes | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | The requested scopes |
 
+<a name='T-Trimble-ID-AuthorizationFailedException'></a>
+## AuthorizationFailedException `type`
+
+##### Namespace
+
+Trimble.ID
+
+##### Summary
+
+An exception class raised for errors in authorizing client requests.
+
+<a name='M-Trimble-ID-AuthorizationFailedException-#ctor-System-String-'></a>
+### #ctor(message) `constructor`
+
+##### Summary
+
+Creates a new AuthorizationFailedException with the specified message.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') |  |
+
+<a name='M-Trimble-ID-AuthorizationFailedException-#ctor-System-String,System-Exception-'></a>
+### #ctor(message,innerException) `constructor`
+
+##### Summary
+
+Creates a new AuthorizationFailedException with the specified message.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The message describing the authorization failure. |
+| innerException | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | The exception underlying the authorization failure. |
+
 <a name='T-Trimble-ID-BearerTokenHttpClientProvider'></a>
 ## BearerTokenHttpClientProvider `type`
 
@@ -528,8 +579,30 @@ Public constructor for BearerTokenHttpClientProvider class
 
 Implements IHttpClientProvider
 
-<a name='F-Trimble-ID-BearerTokenHttpClientProvider-Logger'></a>
-### Logger `constants`
+<a name='P-Trimble-ID-BearerTokenHttpClientProvider-ClientId'></a>
+### ClientId `property`
+
+##### Summary
+
+Gets the client ID.
+
+<a name='P-Trimble-ID-BearerTokenHttpClientProvider-Logger'></a>
+### Logger `property`
+
+##### Summary
+
+Gets or sets the logger for this HTTP client provider
+
+<a name='M-Trimble-ID-BearerTokenHttpClientProvider-GetClientIdAsync'></a>
+### GetClientIdAsync() `method`
+
+##### Summary
+
+Gets the client ID asynchronously.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='P-Trimble-ID-BearerTokenHttpClientProvider-ClientId'></a>
 ### ClientId `property`
@@ -637,8 +710,18 @@ This method has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a token endpoint is not provided by the endpoint provider |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the token endpoint fails |
+| [Trimble.ID.AuthorizationFailedException](#T-Trimble-ID-AuthorizationFailedException 'Trimble.ID.AuthorizationFailedException') | Thrown when a call to the token endpoint fails to obtain token |
+
+<a name='M-Trimble-ID-ClientCredentialTokenProvider-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
+### RetrieveTokenAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-Trimble-ID-ClientCredentialTokenProvider-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
 ### RetrieveTokenAsync() `method`
@@ -664,7 +747,9 @@ Fluent extension for adding scopes
 | ---- | ---- | ----------- |
 | scopes | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | The requested scopes |
 
+
 <a name='T-Trimble-ID-DeviceAuthorizationResponse'></a>
+
 ## DeviceAuthorizationResponse `type`
 
 ##### Namespace
@@ -843,7 +928,7 @@ Performs token request
 | Name | Description |
 | ---- | ----------- |
 | [System.TimeoutException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.TimeoutException 'System.TimeoutException') | Thrown when a token request times out |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the token endpoint fails |
+| [Trimble.ID.AuthorizationFailedException](#T-Trimble-ID-AuthorizationFailedException 'Trimble.ID.AuthorizationFailedException') | Thrown when a call to device authoiration fails |
 
 <a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-RetrieveIdToken'></a>
 ### RetrieveIdToken() `method`
@@ -908,8 +993,18 @@ This method has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a token endpoint is not provided by the endpoint provider |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the token endpoint fails |
+| [Trimble.ID.TokenRefreshException](#T-Trimble-ID-TokenRefreshException 'Trimble.ID.TokenRefreshException') | Thrown when a call to the token endpoint fails |
+
+<a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
+### RetrieveTokenAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
 ### RetrieveTokenAsync() `method`
@@ -995,6 +1090,17 @@ Constructor
 
 This constructor has no parameters.
 
+<a name='M-Trimble-ID-EncryptedStorage-CombineEntropy-System-Byte[],System-Byte[]-'></a>
+### CombineEntropy() `method`
+
+##### Summary
+
+Combines the secret with additional entropy
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-Trimble-ID-EncryptedStorage-GetItem-System-String-'></a>
 ### GetItem() `method`
 
@@ -1027,6 +1133,73 @@ Store a named value in persistant storage
 ##### Parameters
 
 This method has no parameters.
+
+<a name='T-Trimble-ID-ErrorMessage'></a>
+## ErrorMessage `type`
+
+##### Namespace
+
+Trimble.ID
+
+##### Summary
+
+The Authorization Error messages.
+
+<a name='F-Trimble-ID-ErrorMessage-FailedToGetToken'></a>
+### FailedToGetToken `constants`
+
+##### Summary
+
+The error message.
+
+<a name='F-Trimble-ID-ErrorMessage-FailedToRefreshToken'></a>
+### FailedToRefreshToken `constants`
+
+##### Summary
+
+The error message.
+
+<a name='F-Trimble-ID-ErrorMessage-FailedToReturnOAuthRedirect'></a>
+### FailedToReturnOAuthRedirect `constants`
+
+##### Summary
+
+The error message.
+
+<a name='F-Trimble-ID-ErrorMessage-FailedToValidateOAuthCode'></a>
+### FailedToValidateOAuthCode `constants`
+
+##### Summary
+
+The error message.
+
+<a name='F-Trimble-ID-ErrorMessage-IdTokenIsRequired'></a>
+### IdTokenIsRequired `constants`
+
+##### Summary
+
+The error message.
+
+<a name='F-Trimble-ID-ErrorMessage-NoKeysetEndpointProvider'></a>
+### NoKeysetEndpointProvider `constants`
+
+##### Summary
+
+The error message.
+
+<a name='F-Trimble-ID-ErrorMessage-RefreshTokenIsNullOrEmpty'></a>
+### RefreshTokenIsNullOrEmpty `constants`
+
+##### Summary
+
+Error message for when refresh token is null or empty
+
+<a name='F-Trimble-ID-ErrorMessage-TokenRefreshFailed'></a>
+### TokenRefreshFailed `constants`
+
+##### Summary
+
+Error message for failed token refresh
 
 <a name='T-Trimble-ID-FixedEndpointProvider'></a>
 ## FixedEndpointProvider `type`
@@ -1929,6 +2102,7 @@ Store a named value in persistant storage
 This method has no parameters.
 
 <a name='T-Trimble-ID-LoggingHandler'></a>
+
 ## LoggingHandler `type`
 
 ##### Namespace
@@ -2037,8 +2211,18 @@ This method has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a token endpoint is not provided by the endpoint provider |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the token endpoint fails |
+| [Trimble.ID.AuthorizationFailedException](#T-Trimble-ID-AuthorizationFailedException 'Trimble.ID.AuthorizationFailedException') | Thrown when a call to the token endpoint fails |
+
+<a name='M-Trimble-ID-OnBehalfGrantTokenProvider-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
+### RetrieveTokenAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-Trimble-ID-OnBehalfGrantTokenProvider-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
 ### RetrieveTokenAsync() `method`
@@ -2358,29 +2542,6 @@ Public constructor for RefreshableTokenProvider class
 
 Implements ITokenProvider
 
-<a name='M-Trimble-ID-RefreshableTokenProvider-#ctor-Trimble-ID-IEndpointProvider,System-String,System-String,System-String,System-DateTime,System-String,System-String-'></a>
-### #ctor(endpointProvider,consumerKey,consumerSecret,accessToken,tokenExpiry,idToken,refreshToken) `constructor`
-
-##### Summary
-
-Public constructor for RefreshableTokenProvider class
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| endpointProvider | [Trimble.ID.IEndpointProvider](#T-Trimble-ID-IEndpointProvider 'Trimble.ID.IEndpointProvider') | An endpoint provider that provides the URL for the Trimble Identity token endpoint |
-| consumerKey | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The consumer key for the calling application |
-| consumerSecret | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The consumer secret for the calling application |
-| accessToken | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The initial access token issued for the authenticated user |
-| tokenExpiry | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The expiry time for the initial access token issued for the authenticated user |
-| idToken | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The ID token for the authenticated user |
-| refreshToken | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The refresh token for the authenticated user |
-
-##### Remarks
-
-Implements ITokenProvider
-
 <a name='T-Trimble-ID-RefreshableTokenProvider`1'></a>
 ## RefreshableTokenProvider\`1 `type`
 
@@ -2438,28 +2599,43 @@ Public constructor for RefreshableTokenProvider class
 
 Implements ITokenProvider
 
-<a name='F-Trimble-ID-RefreshableTokenProvider`1-_codeVerifier'></a>
-### _codeVerifier `constants`
+<a name='F-Trimble-ID-RefreshableTokenProvider`1-_clientId'></a>
+### _clientId `constants`
 
-<a name='F-Trimble-ID-RefreshableTokenProvider`1-_consumerKey'></a>
-### _consumerKey `constants`
-
-<a name='F-Trimble-ID-RefreshableTokenProvider`1-_consumerSecret'></a>
-### _consumerSecret `constants`
+<a name='F-Trimble-ID-RefreshableTokenProvider`1-_clientSecret'></a>
+### _clientSecret `constants`
 
 <a name='F-Trimble-ID-RefreshableTokenProvider`1-_endpointProvider'></a>
 ### _endpointProvider `constants`
 
-<a name='F-Trimble-ID-RefreshableTokenProvider`1-_idToken'></a>
-### _idToken `constants`
+<a name='F-Trimble-ID-RefreshableTokenProvider`1-_gaParameters'></a>
+### _gaParameters `constants`
 
 <a name='F-Trimble-ID-RefreshableTokenProvider`1-_messageHandler'></a>
 ### _messageHandler `constants`
 
-<a name='F-Trimble-ID-RefreshableTokenProvider`1-_timeProvider'></a>
-### _timeProvider `constants`
+<a name='M-Trimble-ID-RefreshableTokenProvider`1-CheckIsOnline'></a>
+### CheckIsOnline() `method`
 
-<a name='M-Trimble-ID-RefreshableTokenProvider`1-GenerateCodeVerifier'></a>
+##### Summary
+
+Checks online state.
+
+##### Returns
+
+True if online.
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Trimble-ID-RefreshableTokenProvider`1-ConvertToUrlSafeBase64String-System-Byte[]-'></a>
+### ConvertToUrlSafeBase64String() `method`
+
+##### Parameters
+
+This method has no parameters.
+
 ### GenerateCodeVerifier() `method`
 
 ##### Summary
@@ -2473,6 +2649,23 @@ A code verifier string
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-Trimble-ID-RefreshableTokenProvider`1-GetSilentTokenAsync-System-Threading-CancellationToken-'></a>
+### GetSilentTokenAsync(cancellationToken) `method`
+
+##### Summary
+
+Get a token silently. Use CrossPlatLock to synchronize access to the cache only if the cache is stored in IsolatedFileStorage.
+
+##### Returns
+
+
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') |  |
 
 <a name='M-Trimble-ID-RefreshableTokenProvider`1-RetrieveCodeVerifier'></a>
 ### RetrieveCodeVerifier() `method`
@@ -2559,8 +2752,18 @@ This method has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a token endpoint is not provided by the endpoint provider |
-| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the token endpoint fails |
+| [Trimble.ID.TokenRefreshException](#T-Trimble-ID-TokenRefreshException 'Trimble.ID.TokenRefreshException') | Thrown when a call to the token endpoint fails |
+
+<a name='M-Trimble-ID-RefreshableTokenProvider`1-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
+### RetrieveTokenAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-Trimble-ID-RefreshableTokenProvider`1-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
 ### RetrieveTokenAsync() `method`
@@ -2603,7 +2806,7 @@ The current RefreshableTokenProvider
 | tokenExpiry | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The expiry time for the initial access token issued for the authenticated user |
 
 <a name='M-Trimble-ID-RefreshableTokenProvider`1-WithConsumerSecret-System-String-'></a>
-### WithConsumerSecret(consumerSecret) `method`
+### WithConsumerSecret(clientSecret) `method`
 
 ##### Summary
 
@@ -2617,7 +2820,7 @@ The current RefreshableTokenProvider
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| consumerSecret | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The consumer secret for the calling application |
+| clientSecret | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The client secret for the calling application |
 
 <a name='M-Trimble-ID-RefreshableTokenProvider`1-WithIdToken-System-String-'></a>
 ### WithIdToken(idToken) `method`
@@ -2635,6 +2838,21 @@ The current RefreshableTokenProvider
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | idToken | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The ID token for the authenticated user |
+
+<a name='M-Trimble-ID-RefreshableTokenProvider`1-WithOfflineAccess'></a>
+### WithOfflineAccess() `method`
+
+##### Summary
+
+Fluent method for enabling offline access
+
+##### Returns
+
+The current RefreshableTokenProvider
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-Trimble-ID-RefreshableTokenProvider`1-WithPersistentStorage-Trimble-ID-IPersistantStorage-'></a>
 ### WithPersistentStorage(persistentStorage) `method`
@@ -2683,6 +2901,24 @@ The current RefreshableTokenProvider
 | ---- | ---- | ----------- |
 | refreshToken | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The refresh token for the authenticated user |
 
+<a name='M-Trimble-ID-RefreshableTokenProvider`1-WithRetryConfiguration-System-Int32,System-Int32-'></a>
+### WithRetryConfiguration(maxRetries,retryDelayInSeconds) `method`
+
+##### Summary
+
+Fluent method to configure retry behavior
+
+##### Returns
+
+The current RefreshableTokenProvider
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| maxRetries | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Maximum number of retries |
+| retryDelayInSeconds | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Base delay between retries in seconds |
+
 <a name='M-Trimble-ID-RefreshableTokenProvider`1-_GenerateCodeChallenge-System-String-'></a>
 ### _GenerateCodeChallenge() `method`
 
@@ -2698,8 +2934,59 @@ The calculated code challenge
 
 This method has no parameters.
 
-<a name='T-Trimble-ID-SelfSignedTokenProvider'></a>
-## SelfSignedTokenProvider `type`
+<a name='T-Trimble-ID-Utilities-RetryHandler'></a>
+## RetryHandler `type`
+
+##### Namespace
+
+Trimble.ID.Utilities
+
+<a name='M-Trimble-ID-Utilities-RetryHandler-ExecuteWithRetryAsync``1-System-Func{System-Threading-Tasks-Task{``0}},System-Func{System-Exception,System-Net-Http-HttpResponseMessage,System-Boolean},System-Int32,System-Nullable{System-TimeSpan},System-Threading-CancellationToken-'></a>
+### ExecuteWithRetryAsync\`\`1(func,shouldRetryPredicate,maxRetries,retryDelay,cancellationToken) `method`
+
+##### Summary
+
+Executes the provided function with retry logic.
+
+##### Returns
+
+The result of the function execution.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| func | [System.Func{System.Threading.Tasks.Task{\`\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{System.Threading.Tasks.Task{``0}}') | The function to execute. |
+| shouldRetryPredicate | [System.Func{System.Exception,System.Net.Http.HttpResponseMessage,System.Boolean}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{System.Exception,System.Net.Http.HttpResponseMessage,System.Boolean}') | Function to determine if retry should be attempted based on the exception. |
+| maxRetries | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Maximum number of retry attempts. |
+| retryDelay | [System.Nullable{System.TimeSpan}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{System.TimeSpan}') | Base delay between retries (will be multiplied by retry count for backoff). |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | The return type of the function. |
+
+<a name='M-Trimble-ID-Utilities-RetryHandler-ShouldRetryOnServerError-System-Exception,System-Net-Http-HttpResponseMessage-'></a>
+### ShouldRetryOnServerError(ex,response) `method`
+
+##### Summary
+
+Determines if the request should be retried based on the HTTP status code.
+
+##### Returns
+
+True if the request should be retried, otherwise false.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| ex | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | The exception that was thrown. |
+| response | [System.Net.Http.HttpResponseMessage](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Net.Http.HttpResponseMessage 'System.Net.Http.HttpResponseMessage') | The HTTP response. |
+
+## TokenHandler `type`
 
 ##### Namespace
 
@@ -2707,44 +2994,115 @@ Trimble.ID
 
 ##### Summary
 
-A token provider that returns a self signed token
+Represents a handler for adding authentication token to the request headers.
 
-##### Remarks
-
-Implements ITokenProvider
-
-<a name='M-Trimble-ID-SelfSignedTokenProvider-#ctor-System-String,Newtonsoft-Json-Linq-JObject-'></a>
-### #ctor(privateKey,payload) `constructor`
+<a name='M-Trimble-ID-TokenHandler-#ctor-Trimble-ID-ITokenProvider-'></a>
+### #ctor(tokenProvider) `constructor`
 
 ##### Summary
 
-Public constructor for SelfSignedTokenProvider class
+Initializes a new instance of the [TokenHandler](#T-Trimble-ID-TokenHandler 'Trimble.ID.TokenHandler') class.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| privateKey | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The private key used to sign the token |
-| payload | [Newtonsoft.Json.Linq.JObject](#T-Newtonsoft-Json-Linq-JObject 'Newtonsoft.Json.Linq.JObject') | The payload for the token |
+| tokenProvider | [Trimble.ID.ITokenProvider](#T-Trimble-ID-ITokenProvider 'Trimble.ID.ITokenProvider') | The token provider used to retrieve the authentication token. |
 
-##### Remarks
-
-Implements ITokenProvider
-
-<a name='M-Trimble-ID-SelfSignedTokenProvider-RetrieveToken'></a>
-### RetrieveToken() `method`
+<a name='F-Trimble-ID-TokenHandler-_tokenProvider'></a>
+### _tokenProvider `constants`
 
 ##### Summary
 
-Retrieves an access token for the user or application
+Represents a handler that adds an authentication token to the request headers before sending the request.
+
+<a name='M-Trimble-ID-TokenHandler-SendAsync-System-Net-Http-HttpRequestMessage,System-Threading-CancellationToken-'></a>
+### SendAsync(request,cancellationToken) `method`
+
+##### Summary
+
+Sends the HTTP request with the added authentication token in the request headers.
 
 ##### Returns
 
-A Task that resolves to the value of the access token on completion
+The HTTP response message.
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| request | [System.Net.Http.HttpRequestMessage](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Net.Http.HttpRequestMessage 'System.Net.Http.HttpRequestMessage') | The HTTP request message. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+
+<a name='T-Trimble-ID-TokenRefreshException'></a>
+## TokenRefreshException `type`
+
+##### Namespace
+
+Trimble.ID
+
+##### Summary
+
+An exception class raised when a token refresh fails.
+
+<a name='M-Trimble-ID-TokenRefreshException-#ctor-System-String-'></a>
+### #ctor(message) `constructor`
+
+##### Summary
+
+Creates a new TokenRefreshException with the specified message.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') |  |
+
+<a name='M-Trimble-ID-TokenRefreshException-#ctor-System-String,System-Exception-'></a>
+### #ctor(message,innerException) `constructor`
+
+##### Summary
+
+Creates a new TokenRefreshException with the specified message.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The message describing the token refresh failure. |
+| innerException | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | The exception underlying the token refresh failure. |
+
+<a name='T-TokenRefreshedEventArgs'></a>
+## TokenRefreshedEventArgs `type`
+
+##### Namespace
+
+
+
+##### Summary
+
+Represents the event arguments for token refreshed event.
+
+<a name='M-TokenRefreshedEventArgs-#ctor-System-String,System-Int64-'></a>
+### #ctor(accessToken,expiresIn) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [TokenRefreshedEventArgs](#T-TokenRefreshedEventArgs 'TokenRefreshedEventArgs') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| accessToken | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The access token. |
+| expiresIn | [System.Int64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64 'System.Int64') | The access token expiration time |
+
+<a name='P-TokenRefreshedEventArgs-AccessToken'></a>
+### AccessToken `property`
+
+##### Summary
+
+Gets the access token.
 
 <a name='M-Trimble-ID-SelfSignedTokenProvider-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
 ### RetrieveTokenAsync() `method`
