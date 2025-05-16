@@ -1,5 +1,5 @@
 ## 1.2.0 (2025-05-15)
-- Cross-process synchronization using lock file to support multi instance simultaneously retrieving the tokens
+  - Cross-process synchronization using lock file to support multi instance simultaneously retrieving the tokens
   - Token storage improvements
   - Improved error handling and retry mechanism in case of transient errors
   - Offline scenerio support to retrieve the info from storage without an active network connections
