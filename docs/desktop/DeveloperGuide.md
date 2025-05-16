@@ -21,6 +21,10 @@ Trimble.ID.Desktop is a .NET library that can be used to add authentication to y
 
 ## <a name="identity">Authentication with Trimble Identity</a> ##
 
+> **NOTE:**
+> 
+> If you do not have access to the Trimble Developer Console, please work with a Trimble partner to get onboarded on to the [Trimble Developer Console](https://console.trimble.com/).
+
 To utilize TID authentication, your identity application must be registered with Trimble Identity. You can conveniently handle the application registration process on [Trimble Developer Console](https://developer.console.trimble.com).
 
 ## <a name="configure-endpoint">Configure the endpoint</a> ##
@@ -62,6 +66,23 @@ The SDK uses [Isolated storage](https://learn.microsoft.com/en-us/dotnet/standar
                                         .WithPersistentStorage(new EncryptedStorage(new IsolatedFileStorage(<"filename.config">), Salt));
   ```
 
+> **_NOTE:_** Token lifetime and refresh are handled automatically. If the client uses persistent storage, our SDK securely stores tokens in [isolated storage](https://learn.microsoft.com/en-us/dotnet/standard/io/isolated-storage). This means that any subsequent application launches will trigger an automatic silent login with the stored tokens. This enables users to seamlessly access the application without the need to manually enter their credentials.
+
+### <a name="offline_access">Offline access</a> ###
+
+Offline access mode allows you to fetch user information and an access token even when offline, and continue to issue new tokens when a network becomes available. This mode bypasses token expiration checks and allows the issuance of existing tokens and user details from persistent storage. It is particularly useful in offline scenarios where you need to retrieve information without an active network connection.
+
+> **_NOTE:_** Requires at least one initial sign-in to initialize the token from the cache.
+    
+To enable offline access mode, use the following code:
+
+```csharp
+IAuthenticator authenticator = new LocalhostAuthenticator(OpenIdEndpointProvider.Production, CLIENT_ID, SCOPES)
+                                        .WithPersistentStorage(new EncryptedStorage(new IsolatedFileStorage(<"filename.config">), Salt))
+                                        .WithOfflineAccess();
+```
+Please refer [here](#user_info) to fetch user information
+
 ### <a name="login">Example: How to Login</a> ###
 
 <b>Summary</b>
@@ -73,7 +94,7 @@ The SDK uses [Isolated storage](https://learn.microsoft.com/en-us/dotnet/standar
   true if the user was successfully logged in
 
   ```csharp
-  var isLoggedIn = authenticator.Login(); 
+  var isLoggedIn = await authenticator.Login(); 
   ```
 ### <a name="access_token">Example: How to get an access token</a> ###
 
@@ -88,6 +109,7 @@ The SDK uses [Isolated storage](https://learn.microsoft.com/en-us/dotnet/standar
   ```csharp
   var accessToken = await authenticator.TokenProvider.RetrieveToken();
   ```
+> **_NOTE:_** Token lifetime and refresh are handled by the SDK.
 
 ### <a name="loggedin_state">Example: How to know logged-in state</a> ###
 <b>Summary</b>

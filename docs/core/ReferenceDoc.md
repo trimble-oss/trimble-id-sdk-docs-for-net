@@ -190,9 +190,11 @@
   - [WithRefreshToken(refreshToken)](#M-Trimble-ID-RefreshableTokenProvider`1-WithRefreshToken-System-String- 'Trimble.ID.RefreshableTokenProvider`1.WithRefreshToken(System.String)')
   - [WithRetryConfiguration(maxRetries,retryDelayInSeconds)](#M-Trimble-ID-RefreshableTokenProvider`1-WithRetryConfiguration-System-Int32,System-Int32- 'Trimble.ID.RefreshableTokenProvider`1.WithRetryConfiguration(System.Int32,System.Int32)')
   - [_GenerateCodeChallenge()](#M-Trimble-ID-RefreshableTokenProvider`1-_GenerateCodeChallenge-System-String- 'Trimble.ID.RefreshableTokenProvider`1._GenerateCodeChallenge(System.String)')
+
 - [TokenRefreshException](#T-Trimble-ID-TokenRefreshException 'Trimble.ID.TokenRefreshException')
   - [#ctor(message)](#M-Trimble-ID-TokenRefreshException-#ctor-System-String- 'Trimble.ID.TokenRefreshException.#ctor(System.String)')
   - [#ctor(message,innerException)](#M-Trimble-ID-TokenRefreshException-#ctor-System-String,System-Exception- 'Trimble.ID.TokenRefreshException.#ctor(System.String,System.Exception)')
+
 - [TokenRefreshedEventArgs](#T-TokenRefreshedEventArgs 'TokenRefreshedEventArgs')
   - [#ctor(accessToken,expiresIn)](#M-TokenRefreshedEventArgs-#ctor-System-String,System-Int64- 'TokenRefreshedEventArgs.#ctor(System.String,System.Int64)')
   - [AccessToken](#P-TokenRefreshedEventArgs-AccessToken 'TokenRefreshedEventArgs.AccessToken')
@@ -270,6 +272,9 @@ This method has no parameters.
 ##### Parameters
 
 This method has no parameters.
+
+
+<a name='T-Trimble-ID-AuthorizationCodeGrantTokenProvider'></a>
 
 ## AuthorizationCodeGrantTokenProvider `type`
 
@@ -599,6 +604,13 @@ Gets the client ID asynchronously.
 
 This method has no parameters.
 
+<a name='P-Trimble-ID-BearerTokenHttpClientProvider-ClientId'></a>
+### ClientId `property`
+
+##### Summary
+
+Gets the client ID.
+
 <a name='M-Trimble-ID-BearerTokenHttpClientProvider-RetrieveClient'></a>
 ### RetrieveClient() `method`
 
@@ -711,6 +723,17 @@ This method has no parameters.
 
 This method has no parameters.
 
+<a name='M-Trimble-ID-ClientCredentialTokenProvider-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
+### RetrieveTokenAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-Trimble-ID-ClientCredentialTokenProvider-WithScopes-System-Collections-Generic-IEnumerable{System-String}-'></a>
 ### WithScopes(scopes) `method`
 
@@ -724,7 +747,9 @@ Fluent extension for adding scopes
 | ---- | ---- | ----------- |
 | scopes | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | The requested scopes |
 
-<a name='T-Trimble-ID-CrossPlatLock'></a>
+
+<a name='T-Trimble-ID-DeviceAuthorizationResponse'></a>
+
 ## DeviceAuthorizationResponse `type`
 
 ##### Namespace
@@ -920,6 +945,13 @@ A Task that resolves to the value of the ID token on completion
 
 This method has no parameters.
 
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a token endpoint is not provided by the endpoint provider |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the token endpoint fails |
+
 <a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-RetrieveRefreshToken'></a>
 ### RetrieveRefreshToken() `method`
 
@@ -934,6 +966,13 @@ A Task that resolves to the value of the refresh token on completion
 ##### Parameters
 
 This method has no parameters.
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a token endpoint is not provided by the endpoint provider |
+| [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Thrown when a call to the token endpoint fails |
 
 <a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-RetrieveToken'></a>
 ### RetrieveToken() `method`
@@ -955,6 +994,17 @@ This method has no parameters.
 | Name | Description |
 | ---- | ----------- |
 | [Trimble.ID.TokenRefreshException](#T-Trimble-ID-TokenRefreshException 'Trimble.ID.TokenRefreshException') | Thrown when a call to the token endpoint fails |
+
+<a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
+### RetrieveTokenAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-Trimble-ID-DeviceAuthorizationTokenProvider-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
 ### RetrieveTokenAsync() `method`
@@ -2051,7 +2101,8 @@ Store a named value in persistant storage
 
 This method has no parameters.
 
-<a name='T-Trimble-ID-LinuxNativeMethods'></a>
+<a name='T-Trimble-ID-LoggingHandler'></a>
+
 ## LoggingHandler `type`
 
 ##### Namespace
@@ -2161,6 +2212,17 @@ This method has no parameters.
 | Name | Description |
 | ---- | ----------- |
 | [Trimble.ID.AuthorizationFailedException](#T-Trimble-ID-AuthorizationFailedException 'Trimble.ID.AuthorizationFailedException') | Thrown when a call to the token endpoint fails |
+
+<a name='M-Trimble-ID-OnBehalfGrantTokenProvider-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
+### RetrieveTokenAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-Trimble-ID-OnBehalfGrantTokenProvider-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
 ### RetrieveTokenAsync() `method`
@@ -2703,6 +2765,17 @@ This method has no parameters.
 
 This method has no parameters.
 
+<a name='M-Trimble-ID-RefreshableTokenProvider`1-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
+### RetrieveTokenAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-Trimble-ID-RefreshableTokenProvider`1-RevokeRefreshToken'></a>
 ### RevokeRefreshToken() `method`
 
@@ -2998,6 +3071,98 @@ Creates a new TokenRefreshException with the specified message.
 | ---- | ---- | ----------- |
 | message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The message describing the token refresh failure. |
 | innerException | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | The exception underlying the token refresh failure. |
+
+<a name='T-TokenRefreshedEventArgs'></a>
+## TokenRefreshedEventArgs `type`
+
+##### Namespace
+
+
+
+##### Summary
+
+Represents the event arguments for token refreshed event.
+
+<a name='M-TokenRefreshedEventArgs-#ctor-System-String,System-Int64-'></a>
+### #ctor(accessToken,expiresIn) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [TokenRefreshedEventArgs](#T-TokenRefreshedEventArgs 'TokenRefreshedEventArgs') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| accessToken | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The access token. |
+| expiresIn | [System.Int64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64 'System.Int64') | The access token expiration time |
+
+<a name='P-TokenRefreshedEventArgs-AccessToken'></a>
+### AccessToken `property`
+
+##### Summary
+
+Gets the access token.
+
+<a name='M-Trimble-ID-SelfSignedTokenProvider-RetrieveTokenAsync-System-Threading-CancellationToken-'></a>
+### RetrieveTokenAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-Trimble-ID-TokenHandler'></a>
+## TokenHandler `type`
+
+##### Namespace
+
+Trimble.ID
+
+##### Summary
+
+Represents a handler for adding authentication token to the request headers.
+
+<a name='M-Trimble-ID-TokenHandler-#ctor-Trimble-ID-ITokenProvider-'></a>
+### #ctor(tokenProvider) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [TokenHandler](#T-Trimble-ID-TokenHandler 'Trimble.ID.TokenHandler') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| tokenProvider | [Trimble.ID.ITokenProvider](#T-Trimble-ID-ITokenProvider 'Trimble.ID.ITokenProvider') | The token provider used to retrieve the authentication token. |
+
+<a name='F-Trimble-ID-TokenHandler-_tokenProvider'></a>
+### _tokenProvider `constants`
+
+##### Summary
+
+Represents a handler that adds an authentication token to the request headers before sending the request.
+
+<a name='M-Trimble-ID-TokenHandler-SendAsync-System-Net-Http-HttpRequestMessage,System-Threading-CancellationToken-'></a>
+### SendAsync(request,cancellationToken) `method`
+
+##### Summary
+
+Sends the HTTP request with the added authentication token in the request headers.
+
+##### Returns
+
+The HTTP response message.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| request | [System.Net.Http.HttpRequestMessage](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Net.Http.HttpRequestMessage 'System.Net.Http.HttpRequestMessage') | The HTTP request message. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='T-TokenRefreshedEventArgs'></a>
 ## TokenRefreshedEventArgs `type`

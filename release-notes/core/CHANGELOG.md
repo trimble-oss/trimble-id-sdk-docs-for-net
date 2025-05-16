@@ -1,9 +1,29 @@
+
 ## 1.3.0 (2025-05-15)
 	- Cross-process synchronization using lock file to support multi instance simultaneously retrieving the tokens
     - Token storage improvements
     - Improved error handling and retry mechanism in case of transient errors
     - Offline scenerio support to retrieve the info from storage without an active network connections
     - Bug fixes and code smells addressed
+
+## 1.3.0-beta.20241217 (2024-12-18)
+- New Features
+    - Token Storage Improvement: Allowed storage of all types of tokens including access_token, id_token, and token expiry information.
+    - Offline Support: Added offline support to fetch user information and tokens when there is no internet connection.
+
+## 1.2.1 (2024-07-25)
+
+* Trimble.ID
+	- Reference dependency hierarchy issue fix
+
+## 1.2.0 (2024-06-25)
+
+* Trimble.ID
+	- Silent Auth support using `prompt=none` that allows applications to indicate whether to display the login UI
+	- A new method `RetrieveTokenAsync` introduced to know the token expiry with the access token
+	- TokenRefresh event handler is added to notify the token refresh events
+	- Some bug fixes and improvements
+
 
 ## 1.1.2 (2024-04-25)
 

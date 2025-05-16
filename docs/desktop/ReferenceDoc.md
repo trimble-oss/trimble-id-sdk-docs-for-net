@@ -331,7 +331,11 @@ This method has no parameters.
 
 ##### Remarks
 
+
 This allows the application to access user's data and token even when offline.
+
+Offline access allows the application user to remain offline by using the token cache, which ignores token expiration.
+
 Note that even in offline mode, at least one initial sign-in is required to initialize the token from the cache.
 
 <a name='M-Trimble-ID-Desktop-LocalhostAuthenticator-WithPersistentStorage-Trimble-ID-IPersistantStorage-'></a>
@@ -446,6 +450,7 @@ The access token.
 
 This method has no parameters.
 
+
 ##### Exceptions
 
 | Name | Description |
@@ -476,3 +481,4 @@ An [AccessToken](#T-Trimble-ID-AccessToken 'Trimble.ID.AccessToken') which can b
 | ---- | ----------- |
 | [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown when the user is not logged in. |
 | [Trimble.ID.TokenRefreshException](#T-Trimble-ID-TokenRefreshException 'Trimble.ID.TokenRefreshException') | Thrown when the token failed to refresh. |
+
