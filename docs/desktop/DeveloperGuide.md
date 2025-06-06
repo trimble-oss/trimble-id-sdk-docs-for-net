@@ -25,7 +25,7 @@ Trimble.ID.Desktop is a .NET library that can be used to add authentication to y
 > 
 > If you do not have access to the Trimble Developer Console, please work with a Trimble partner to get onboarded on to the [Trimble Developer Console](https://console.trimble.com/).
 
-To utilize TID authentication, your identity application must be registered with Trimble Identity. You can conveniently handle the application registration process on [Trimble Developer Console](https://developer.console.trimble.com).
+To utilize TID authentication, your identity application must be registered with Trimble Identity. You can conveniently handle the application registration process on [Trimble Developer Console](https://console.trimble.com/).
 
 ## <a name="configure-endpoint">Configure the endpoint</a> ##
 
@@ -46,7 +46,7 @@ Configure the well-known URL endpoint is used to retrieve the authorization, tok
 
 Create a single instance of the LocalhostAuthenticator which will remain for the lifetime of the application. The LocalhostAuthenticator is responsible for managing the authentication flow and token refresh.
 
-Ensure to configure the `https://localhost` as a valid redirect URI in the [Trimble Developer Console](https://beta.console.trimble.com/home).
+Ensure to configure the `https://localhost` as a valid redirect URI in the [Trimble Developer Console](https://console.trimble.com/).
 
 ```csharp
 const string WELL_KNOWN_ENDPOINT = "https://id.trimble.com/.well-known/openid-configuration";

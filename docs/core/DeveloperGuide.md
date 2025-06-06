@@ -26,7 +26,7 @@ Currently we support .NET standard 2.0 / .NET Framework > 4.6.1.
 > 
 > If you do not have access to the Trimble Developer Console, please work with a Trimble partner to get onboarded on to the [Trimble Developer Console](https://console.trimble.com/).
 
-To utilize TID authentication, your identity application must be registered with Trimble Identity. You can conveniently handle the application registration process on [Trimble Developer Console](https://developer.console.trimble.com).
+To utilize TID authentication, your identity application must be registered with Trimble Identity. You can conveniently handle the application registration process on [Trimble Developer Console](https://console.trimble.com/).
 
 ## <a name="configure-endpoint">Configure endpoint</a> ##
 

@@ -43,7 +43,7 @@ Once the authorization flow is completed in the browser, application will redire
 > 
 > If you do not have access to the Trimble Developer Console, please work with a Trimble partner to get onboarded on to the [Trimble Developer Console](https://console.trimble.com/).
 
-To utilize TID authentication, your identity application must be registered with Trimble Identity. You can conveniently handle the application registration process on [Trimble Developer Console](https://console.trimble.com).
+To utilize TID authentication, your identity application must be registered with Trimble Identity. You can conveniently handle the application registration process on [Trimble Developer Console](https://console.trimble.com/).
 
 ## <a name="configure_client">Configure Client</a> ##
 
