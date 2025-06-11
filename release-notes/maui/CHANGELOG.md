@@ -1,3 +1,7 @@
+# 2.0.1 (2025-06-10)
+
+- Bug Fix: The dynamic redirection port was not being used when the authenticator was reinitialized on the Windows platform.
+
 # 2.0.0 (2024-04-25)
 
 - Added Windows Platform support
