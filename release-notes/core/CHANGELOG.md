@@ -1,13 +1,15 @@
 ## 1.3.1 (2025-06-17)
-- Removed unsigned assembly jose-jwt in favor of Microsoft.IdentityModel.JsonWebTokens for token validation.
+* Trimble.ID
+	- Removed unsigned assembly jose-jwt in favor of Microsoft.IdentityModel.JsonWebTokens for token validation.
 
 ## 1.3.0 (2025-05-15)
-- Cross-process synchronization using lock file to support multi instance simultaneously retrieving the tokens
-- Token storage improvements
-- Improved error handling and retry mechanism in case of transient errors
-- Offline scenerio support to retrieve the info from storage without an active network connections
-- Bug fixes and code smells addressed
-- Strong named assembly
+* Trimble.ID
+	- Cross-process synchronization using lock file to support multi instance simultaneously retrieving the tokens
+	- Token storage improvements
+	- Improved error handling and retry mechanism in case of transient errors
+	- Offline scenerio support to retrieve the info from storage without an active network connections
+	- Bug fixes and code smells addressed
+	- Strong named assembly
 
 ## 1.3.0-beta.20241217 (2024-12-18)
 - New Features
