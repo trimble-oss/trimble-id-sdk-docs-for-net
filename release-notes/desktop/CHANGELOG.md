@@ -1,5 +1,6 @@
 ## 1.2.1 (2025-06-17)
-- Removed unsigned assembly jose-jwt in favor of Microsoft.IdentityModel.JsonWebTokens for token validation.
+* Trimble.ID.Desktop
+	- Removed unsigned assembly jose-jwt in favor of Microsoft.IdentityModel.JsonWebTokens for token validation.
 
 ## 1.2.0 (2024-06-25)
 
