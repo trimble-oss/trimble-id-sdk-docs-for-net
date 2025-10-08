@@ -46,7 +46,7 @@ Configure the well-known URL endpoint is used to retrieve the authorization, tok
 
 Create a single instance of the LocalhostAuthenticator which will remain for the lifetime of the application. The LocalhostAuthenticator is responsible for managing the authentication flow and token refresh.
 
-Ensure to configure the `https://localhost` as a valid redirect URI in the [Trimble Developer Console](https://console.trimble.com/).
+Ensure to configure the `http://127.0.0.1/` as a valid redirect URI in the [Trimble Developer Console](https://console.trimble.com/). [ The trailing slash '/' is required, missing it can cause errors.]
 
 ```csharp
 const string WELL_KNOWN_ENDPOINT = "https://id.trimble.com/.well-known/openid-configuration";
