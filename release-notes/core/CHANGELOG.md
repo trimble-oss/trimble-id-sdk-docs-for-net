@@ -1,3 +1,10 @@
+## 1.4.0 (2026-02-26)
+### Trimble.ID
+
+- Enhancements:
+ 
+    - Added account_id and data_region fields in the userinfo response.
+ 
 ## 1.3.2 (2025-07-21)
 * Trimble.ID
 	- Default leeway time has been added to renew the token 5 mins before expiration  to prevent disruptions and address edge cases where a token might expire during a critical operation. This is addressed for Client Credential Grant type provider
