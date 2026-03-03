@@ -1,3 +1,15 @@
+## 1.2.2 (2026-02-26)
+### Trimble.ID.Desktop
+  
+- Enhancements: 
+
+    - Added account_id and data_region fields in the userinfo response.
+    - Updated browser launch mechanism to prevent PATH conflicts caused by external executables named start, ensuring reliable login flow across environments. 
+
+- Dependency Update:
+
+    - Updated trimble-id to 1.4.0
+
 ## 1.2.1 (2025-06-17)
 * Trimble.ID.Desktop
 	- Removed unsigned assembly jose-jwt in favor of Microsoft.IdentityModel.JsonWebTokens for token validation.

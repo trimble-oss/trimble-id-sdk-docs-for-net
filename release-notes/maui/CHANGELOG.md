@@ -1,3 +1,11 @@
+# 2.1.0 (2026-03-02)
+
+Enhancements:
+  - Added account_id and data_region fields in the userinfo response.
+  
+Dependency Update:
+  - Updated trimble-id to 1.4.0
+  
 # 2.0.1 (2025-06-10)
 
 - Bug Fix: The dynamic redirection port was not being used when the authenticator was reinitialized on the Windows platform.
