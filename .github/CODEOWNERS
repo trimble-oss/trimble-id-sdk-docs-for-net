@@ -1,0 +1,21 @@
+# Each line is a file pattern followed by one or more owners.
+# Order matters — later rules take precedence.
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owners for everything in the repo
+*                       @trimble-oss/platform-sdk-maintainers
+
+# Core SDK
+/docs/core/             @trimble-oss/platform-sdk-maintainers
+/release-notes/core/    @trimble-oss/platform-sdk-maintainers
+
+# Desktop SDK
+/docs/desktop/          @trimble-oss/platform-sdk-maintainers
+/release-notes/desktop/ @trimble-oss/platform-sdk-maintainers
+
+# MAUI SDK
+/docs/maui/             @trimble-oss/platform-sdk-maintainers
+/release-notes/maui/    @trimble-oss/platform-sdk-maintainers
+
+# Samples
+/samples/               @trimble-oss/platform-sdk-maintainers
