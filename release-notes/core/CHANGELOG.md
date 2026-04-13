@@ -1,3 +1,7 @@
+## 1.4.1 (2026-04-10)
+### Trimble.ID
+   - Fixed an issue where claim set validation failed after token expiry due to the use of a stale token
+   
 ## 1.4.0 (2026-02-26)
 ### Trimble.ID
 
@@ -15,7 +19,7 @@
 
 ## 1.3.0 (2025-05-15)
 * Trimble.ID
-	- Cross-process synchronization using lock file to support multi instance simultaneously retrieving the tokens
+  	- Cross-process synchronization using lock file to support multi instance simultaneously retrieving the tokens
 	- Token storage improvements
 	- Improved error handling and retry mechanism in case of transient errors
 	- Offline scenerio support to retrieve the info from storage without an active network connections
