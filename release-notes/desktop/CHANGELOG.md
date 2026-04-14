@@ -1,3 +1,10 @@
+## 1.2.3 (2026-04-10)
+### Trimble.ID.Desktop
+
+- Dependency Update:
+
+    - Updated Trimble.ID to latest version (1.4.1)
+	
 ## 1.2.2 (2026-02-26)
 ### Trimble.ID.Desktop
   
