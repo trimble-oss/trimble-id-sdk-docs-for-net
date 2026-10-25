@@ -7,7 +7,7 @@
 3. [Configure the endpoint](#configure-endpoint)
 4. [Code snippets](#snippets)
     + [Configure LocalhostAuthenticator](#configure_authenticator)
-    + [Persistence Storage](#persistant_storage)
+    + [Persistence Storage](#persistent_storage)
     + [Example: How to Login](#login) 
     + [Example: How to get an access token](#access_token)
     + [Example: How to know logged-in state](#loggedin_state)

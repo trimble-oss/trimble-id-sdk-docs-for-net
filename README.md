@@ -54,7 +54,7 @@ To register your application in Trimble Developer Console:
     | ----------- | ----------- |
     | Application Grant Types        | Select the grant types that will be used for authenticating users or applications.                    |
     | Allowed Callback URLS| Refers to the redirect URI of the application after logging into Identity. More than one URL can be added to this field. The total URI length should not exceed 400kb. This field appears only when you select the Authorization Grant type.  |
-    | Allowed Logout URLS | The URIs that Identity can redirect to after log out. More than one UL can be added to this field. The total URI length should not exceed 400kb. This field appears only when you select the Authorization Grant type.  |
+    | Allowed Logout URLS | The URIs that Identity can redirect to after log out. More than one URI can be added to this field. The total URI length should not exceed 400kb. This field appears only when you select the Authorization Grant type.  |
 
 5. Select "Create Application" to save changes.
 

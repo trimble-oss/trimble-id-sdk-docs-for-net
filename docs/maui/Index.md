@@ -1,6 +1,6 @@
 # Trimble Identity .NET MAUI SDK
 
-Trimble Identity .NET MAUI SDK is cross-platform framework SDK that enables user authentication flows with Trimble Identity (TID). This abstracts all the complexity by exposing easy method call for developer needs. It includes token refresh rotation, persistent storage management, browser integration, and more. It supports Android, iOS and Windows platforms.
+Trimble Identity .NET MAUI SDK is a cross-platform framework SDK that enables user authentication flows with Trimble Identity (TID). This abstracts all the complexity by exposing easy method calls for developer needs. It includes token refresh rotation, persistent storage management, browser integration, and more. It supports Android, iOS and Windows platforms.
 
 ### Acronyms
 

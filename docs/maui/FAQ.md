@@ -2,7 +2,7 @@
 
 1. [Does Trimble Identity .NET MAUI support PKCE?](#pkce-support)
 2. [How is persistent storage implemented in the SDK?](#persistent-storage-implementation)
-3. [Can we provide two seperate redirect uri to sdk to handle redirect in Android and iOS apps?](#can-we-provide-two-seperate-redirect-uri-for-android-and-ios-apps)
+3. [Can we provide two separate redirect uri to sdk to handle redirect in Android and iOS apps?](#can-we-provide-two-seperate-redirect-uri-for-android-and-ios-apps)
 4. [How to fix Compiler Error CS1705.](#how-to-fix-compiler-error-cs1705)\
 Error CS1705: Assembly 'Trimble.Id' with identity 'Trimble.Id, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' uses 'Microsoft.iOS, Version=16.4.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065' which has a higher version than referenced assembly 'Microsoft.iOS' with identity 'Microsoft.iOS, Version=16.2.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065' (CS1705)
 5. [What does OnReceive() do?](#what-does-on-receive-do)
@@ -16,7 +16,7 @@ Yes Trimble Identity .NET MAUI supports `PKCE`.
 
 Persistent storage is implemented using `Secure Storage` in the sdk. For more details refer [Secure Storage](https://learn.microsoft.com/en-us/dotnet/maui/platform-integration/storage/secure-storage?tabs=android).
 
-## <a name="can-we-provide-two-seperate-redirect-uri-for-android-and-ios-apps">Can we provide two seperate redirect uri for Android and iOS apps?</a> ##
+## <a name="can-we-provide-two-seperate-redirect-uri-for-android-and-ios-apps">Can we provide two separate redirect uri for Android and iOS apps?</a> ##
 
 Yes, you can specify different redirect uri for Android, iOS and Windows.
 
@@ -45,7 +45,7 @@ This error is caused by the accidental use of two versions of the same assembly.
 
 ## <a name="what-does-on-receive-do">What does OnReceive() do?</a> ##
 
-`OnReceieve()` is invoked to complete the authentication flow. OnReceive() basically exchanges the authcode for tokens and completes Login. On Logout (singleSignOut must be set to true), OnReceive() clears the browser session.
+`OnReceive()` is invoked to complete the authentication flow. OnReceive() basically exchanges the authcode for tokens and completes Login. On Logout (singleSignOut must be set to true), OnReceive() clears the browser session.
 For more details on usage of OnReceive() refer [README](./ReferenceDoc.md#onreceivequery-method).
 
 ## <a name="how-to-use-withactivity-withviewcontroller-and-why">How to use WithActivity() or WithViewController() and why?</a> ##

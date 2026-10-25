@@ -22,7 +22,7 @@
   	- Cross-process synchronization using lock file to support multi instance simultaneously retrieving the tokens
 	- Token storage improvements
 	- Improved error handling and retry mechanism in case of transient errors
-	- Offline scenerio support to retrieve the info from storage without an active network connections
+	- Offline scenario support to retrieve the info from storage without an active network connection
 	- Bug fixes and code smells addressed
 	- Strong named assembly
 
